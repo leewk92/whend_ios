@@ -9,6 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var usernameLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +27,24 @@ class ViewController: UIViewController {
     func hi(){
         println("hi")
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
+        if (isLoggedIn != 1) {
+            self.performSegueWithIdentifier("goto_login", sender: self)
+        } else {
+            
+            //We need to see about NSString
+            self.usernameLabel.text = prefs.valueForKey("USERNAME") as! NSString as String
+        }
+    }
 
+    @IBAction func logoutButton(sender: UIButton) {
+        
+        self.performSegueWithIdentifier("goto_login", sender: self)
+    }
 }
 
