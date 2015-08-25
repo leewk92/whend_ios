@@ -20,6 +20,7 @@
 		044F64CC1B8851EE00A318E6 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64CA1B8851EE00A318E6 /* TweetTableViewCell.swift */; };
 		044F64CD1B8851EE00A318E6 /* TweetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64CB1B8851EE00A318E6 /* TweetTableViewController.swift */; };
 		044F64CF1B885CDA00A318E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64CE1B885CDA00A318E6 /* LoginViewController.swift */; };
+		047C3C201B8C475B006083A3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C3C1F1B8C475B006083A3 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		044F64CA1B8851EE00A318E6 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		044F64CB1B8851EE00A318E6 /* TweetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewController.swift; sourceTree = "<group>"; };
 		044F64CE1B885CDA00A318E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		047C3C1F1B8C475B006083A3 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				044F64CA1B8851EE00A318E6 /* TweetTableViewCell.swift */,
 				044F64CB1B8851EE00A318E6 /* TweetTableViewController.swift */,
 				044F64A51B8837C500A318E6 /* Main.storyboard */,
+				047C3C1F1B8C475B006083A3 /* SignUpViewController.swift */,
 				044F64CE1B885CDA00A318E6 /* LoginViewController.swift */,
 				044F64A81B8837C500A318E6 /* Images.xcassets */,
 				044F64AA1B8837C500A318E6 /* LaunchScreen.xib */,
@@ -245,6 +248,7 @@
 				044F64A41B8837C500A318E6 /* ViewController.swift in Sources */,
 				044F64CD1B8851EE00A318E6 /* TweetTableViewController.swift in Sources */,
 				044F64C81B8851E200A318E6 /* TwitterRequest.swift in Sources */,
+				047C3C201B8C475B006083A3 /* SignUpViewController.swift in Sources */,
 				044F64C91B8851E200A318E6 /* User.swift in Sources */,
 				044F64A21B8837C500A318E6 /* AppDelegate.swift in Sources */,
 				044F64C61B8851E200A318E6 /* MediaItem.swift in Sources */,
@@ -445,6 +449,7 @@
 				044F64BD1B8837C500A318E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		044F64BE1B8837C500A318E6 /* Build configuration list for PBXNativeTarget "whendTests" */ = {
 			isa = XCConfigurationList;
@@ -453,6 +458,7 @@
 				044F64C01B8837C500A318E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
