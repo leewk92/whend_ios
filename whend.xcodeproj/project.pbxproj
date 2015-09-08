@@ -21,6 +21,8 @@
 		044F64CD1B8851EE00A318E6 /* TweetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64CB1B8851EE00A318E6 /* TweetTableViewController.swift */; };
 		044F64CF1B885CDA00A318E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64CE1B885CDA00A318E6 /* LoginViewController.swift */; };
 		047C3C201B8C475B006083A3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C3C1F1B8C475B006083A3 /* SignUpViewController.swift */; };
+		04E4F1C31B9D9A9000255D2E /* WallTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E4F1C21B9D9A9000255D2E /* WallTableViewController.swift */; };
+		04E4F1C51B9D9AAA00255D2E /* WallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E4F1C41B9D9AAA00255D2E /* WallTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		044F64CB1B8851EE00A318E6 /* TweetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewController.swift; sourceTree = "<group>"; };
 		044F64CE1B885CDA00A318E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		047C3C1F1B8C475B006083A3 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		04E4F1C21B9D9A9000255D2E /* WallTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallTableViewController.swift; sourceTree = "<group>"; };
+		04E4F1C41B9D9AAA00255D2E /* WallTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 			children = (
 				044F64A11B8837C500A318E6 /* AppDelegate.swift */,
 				044F64A31B8837C500A318E6 /* ViewController.swift */,
+				04E4F1C21B9D9A9000255D2E /* WallTableViewController.swift */,
+				04E4F1C41B9D9AAA00255D2E /* WallTableViewCell.swift */,
 				044F64CA1B8851EE00A318E6 /* TweetTableViewCell.swift */,
 				044F64CB1B8851EE00A318E6 /* TweetTableViewController.swift */,
 				044F64A51B8837C500A318E6 /* Main.storyboard */,
@@ -247,11 +253,13 @@
 				044F64CF1B885CDA00A318E6 /* LoginViewController.swift in Sources */,
 				044F64A41B8837C500A318E6 /* ViewController.swift in Sources */,
 				044F64CD1B8851EE00A318E6 /* TweetTableViewController.swift in Sources */,
+				04E4F1C31B9D9A9000255D2E /* WallTableViewController.swift in Sources */,
 				044F64C81B8851E200A318E6 /* TwitterRequest.swift in Sources */,
 				047C3C201B8C475B006083A3 /* SignUpViewController.swift in Sources */,
 				044F64C91B8851E200A318E6 /* User.swift in Sources */,
 				044F64A21B8837C500A318E6 /* AppDelegate.swift in Sources */,
 				044F64C61B8851E200A318E6 /* MediaItem.swift in Sources */,
+				04E4F1C51B9D9AAA00255D2E /* WallTableViewCell.swift in Sources */,
 				044F64C71B8851E200A318E6 /* Tweet.swift in Sources */,
 				044F64CC1B8851EE00A318E6 /* TweetTableViewCell.swift in Sources */,
 			);
