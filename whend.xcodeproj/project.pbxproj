@@ -16,13 +16,17 @@
 		044F64C61B8851E200A318E6 /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64C21B8851E200A318E6 /* MediaItem.swift */; };
 		044F64C71B8851E200A318E6 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64C31B8851E200A318E6 /* Tweet.swift */; };
 		044F64C81B8851E200A318E6 /* TwitterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64C41B8851E200A318E6 /* TwitterRequest.swift */; };
-		044F64C91B8851E200A318E6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64C51B8851E200A318E6 /* User.swift */; };
 		044F64CC1B8851EE00A318E6 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64CA1B8851EE00A318E6 /* TweetTableViewCell.swift */; };
 		044F64CD1B8851EE00A318E6 /* TweetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64CB1B8851EE00A318E6 /* TweetTableViewController.swift */; };
 		044F64CF1B885CDA00A318E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64CE1B885CDA00A318E6 /* LoginViewController.swift */; };
 		047C3C201B8C475B006083A3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C3C1F1B8C475B006083A3 /* SignUpViewController.swift */; };
 		04E4F1C31B9D9A9000255D2E /* WallTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E4F1C21B9D9A9000255D2E /* WallTableViewController.swift */; };
 		04E4F1C51B9D9AAA00255D2E /* WallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E4F1C41B9D9AAA00255D2E /* WallTableViewCell.swift */; };
+		FAE7F1B01B9EA19500F6818D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE7F1AF1B9EA19500F6818D /* User.swift */; };
+		FAE7F1B21B9EA1A200F6818D /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE7F1B11B9EA1A200F6818D /* Schedule.swift */; };
+		FAE7F1B41B9EA1AA00F6818D /* HashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE7F1B31B9EA1AA00F6818D /* HashTag.swift */; };
+		FAE7F1B61B9EA1DB00F6818D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE7F1B51B9EA1DB00F6818D /* Comment.swift */; };
+		FAE7F1B81B9EA20A00F6818D /* FacebookFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE7F1B71B9EA20A00F6818D /* FacebookFriend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,13 +53,17 @@
 		044F64C21B8851E200A318E6 /* MediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
 		044F64C31B8851E200A318E6 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		044F64C41B8851E200A318E6 /* TwitterRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterRequest.swift; sourceTree = "<group>"; };
-		044F64C51B8851E200A318E6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		044F64CA1B8851EE00A318E6 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		044F64CB1B8851EE00A318E6 /* TweetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewController.swift; sourceTree = "<group>"; };
 		044F64CE1B885CDA00A318E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		047C3C1F1B8C475B006083A3 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		04E4F1C21B9D9A9000255D2E /* WallTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallTableViewController.swift; sourceTree = "<group>"; };
 		04E4F1C41B9D9AAA00255D2E /* WallTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallTableViewCell.swift; sourceTree = "<group>"; };
+		FAE7F1AF1B9EA19500F6818D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FAE7F1B11B9EA1A200F6818D /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		FAE7F1B31B9EA1AA00F6818D /* HashTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashTag.swift; sourceTree = "<group>"; };
+		FAE7F1B51B9EA1DB00F6818D /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		FAE7F1B71B9EA20A00F6818D /* FacebookFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookFriend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,7 @@
 		044F649E1B8837C500A318E6 /* whend */ = {
 			isa = PBXGroup;
 			children = (
+				FAE7F1AE1B9EA17A00F6818D /* Model */,
 				044F64A11B8837C500A318E6 /* AppDelegate.swift */,
 				044F64A31B8837C500A318E6 /* ViewController.swift */,
 				04E4F1C21B9D9A9000255D2E /* WallTableViewController.swift */,
@@ -145,9 +154,20 @@
 				044F64C21B8851E200A318E6 /* MediaItem.swift */,
 				044F64C31B8851E200A318E6 /* Tweet.swift */,
 				044F64C41B8851E200A318E6 /* TwitterRequest.swift */,
-				044F64C51B8851E200A318E6 /* User.swift */,
 			);
 			path = Twitter;
+			sourceTree = "<group>";
+		};
+		FAE7F1AE1B9EA17A00F6818D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAE7F1AF1B9EA19500F6818D /* User.swift */,
+				FAE7F1B11B9EA1A200F6818D /* Schedule.swift */,
+				FAE7F1B31B9EA1AA00F6818D /* HashTag.swift */,
+				FAE7F1B51B9EA1DB00F6818D /* Comment.swift */,
+				FAE7F1B71B9EA20A00F6818D /* FacebookFriend.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,17 +270,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE7F1B01B9EA19500F6818D /* User.swift in Sources */,
 				044F64CF1B885CDA00A318E6 /* LoginViewController.swift in Sources */,
 				044F64A41B8837C500A318E6 /* ViewController.swift in Sources */,
+				FAE7F1B81B9EA20A00F6818D /* FacebookFriend.swift in Sources */,
 				044F64CD1B8851EE00A318E6 /* TweetTableViewController.swift in Sources */,
 				04E4F1C31B9D9A9000255D2E /* WallTableViewController.swift in Sources */,
 				044F64C81B8851E200A318E6 /* TwitterRequest.swift in Sources */,
 				047C3C201B8C475B006083A3 /* SignUpViewController.swift in Sources */,
-				044F64C91B8851E200A318E6 /* User.swift in Sources */,
 				044F64A21B8837C500A318E6 /* AppDelegate.swift in Sources */,
 				044F64C61B8851E200A318E6 /* MediaItem.swift in Sources */,
 				04E4F1C51B9D9AAA00255D2E /* WallTableViewCell.swift in Sources */,
+				FAE7F1B61B9EA1DB00F6818D /* Comment.swift in Sources */,
 				044F64C71B8851E200A318E6 /* Tweet.swift in Sources */,
+				FAE7F1B21B9EA1A200F6818D /* Schedule.swift in Sources */,
+				FAE7F1B41B9EA1AA00F6818D /* HashTag.swift in Sources */,
 				044F64CC1B8851EE00A318E6 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
