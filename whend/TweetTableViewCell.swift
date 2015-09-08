@@ -28,11 +28,7 @@ class TweetTableViewCell: UITableViewCell
     
     if let tweet = self.tweet
     {
-//        var text = tweet.text
-//    
-//        for _ in tweet.media {
-//                text += " 📷"
-//        }
+
 
         tweetTextLabel?.text = tweet.text
         if tweetTextLabel?.text != nil {
@@ -42,16 +38,7 @@ class TweetTableViewCell: UITableViewCell
         }
         
         
-        
-        
-//    var attributedText = NSMutableAttributedString(string: text)
-//    attributedText.changeKeywordsColor(tweet.hashtags, color: hashtagColor)
-//    attributedText.changeKeywordsColor(tweet.urls, color: urlColor)
-//    attributedText.changeKeywordsColor(tweet.userMentions, color: userMentionsColor)
-//    
-//    attributedText.changeKeywordsColor(tweet.mediaMentions, color: urlColor)
-//    
-//    tweetTextLabel?.attributedText = attributedText
+
     
     tweetScreenNameLabel?.text = "\(tweet.user)"
     
