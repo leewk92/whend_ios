@@ -28,6 +28,11 @@ class TweetTableViewCell: UITableViewCell
     
     if let tweet = self.tweet
     {
+//        var text = tweet.text
+//    
+//        for _ in tweet.media {
+//                text += " 📷"
+//        }
 
 
         tweetTextLabel?.text = tweet.text
