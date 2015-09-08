@@ -443,7 +443,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="338" id="yrn-Vd-sko" customClass="WallTableViewCell" customModule="whend" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScheduleItem" rowHeight="338" id="yrn-Vd-sko" customClass="WallTableViewCell" customModule="whend" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yrn-Vd-sko" id="jVN-lk-XTO">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -513,6 +513,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="scheduleTitleLabel" destination="YJl-uB-Lxd" id="xeN-73-foE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -524,7 +527,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhi-Az-ioC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1875" y="-148"/>
+            <point key="canvasLocation" x="1885" y="-158"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0sV-oB-Mwb">

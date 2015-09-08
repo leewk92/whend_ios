@@ -9,7 +9,19 @@
 import UIKit
 
 class WallTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var scheduleTitleLabel: UILabel!
+    
+    var schedule: Schedule? {
+        didSet {
+            updateUI()
+        }
+    }
+    
+    func updateUI() {
+        scheduleTitleLabel?.attributedText = nil
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
