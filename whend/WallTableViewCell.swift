@@ -16,14 +16,42 @@ class WallTableViewCell: UITableViewCell {
         }
     }
     
+    @IBOutlet weak var scheduleUserNameLabel: UILabel!
+ 
     @IBOutlet weak var scheduleTitleLabel: UILabel!
-
+    
+    @IBOutlet weak var scheduleDateLabel: UILabel!
+    
+    @IBOutlet weak var scheduleTimeLabel: UILabel!
+    
+    @IBOutlet weak var scheduleLocationLabel: UILabel!
+    
+    @IBOutlet weak var scheduleLikeLabel: UILabel!
+    
+    @IBOutlet weak var scheduleFollowLabel: UILabel!
+    
+    @IBOutlet weak var scheduleCommentLabel: UILabel!
+    
     func updateUI() {
+        scheduleUserNameLabel?.text = nil
         scheduleTitleLabel?.text = nil
+        scheduleDateLabel?.text = nil
+        scheduleTimeLabel?.text = nil
+        scheduleLocationLabel?.text = nil
+        scheduleLikeLabel?.text = nil
+        scheduleFollowLabel?.text = nil
+        scheduleCommentLabel?.text = nil
         
         if let schedule = self.schedule
         {
+            scheduleUserNameLabel?.text = schedule.title
             scheduleTitleLabel?.text = schedule.title
+            scheduleDateLabel?.text = schedule.starttime
+            scheduleTimeLabel?.text = schedule.endtime
+            scheduleLocationLabel?.text = schedule.location
+            scheduleLikeLabel?.text = String(schedule.like_count)
+            scheduleFollowLabel?.text = String(schedule.follow_count)
+            scheduleCommentLabel?.text = String(schedule.comment_count)
         }
     }
     
