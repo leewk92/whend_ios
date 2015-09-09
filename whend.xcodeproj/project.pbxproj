@@ -13,11 +13,6 @@
 		044F64A91B8837C500A318E6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044F64A81B8837C500A318E6 /* Images.xcassets */; };
 		044F64AC1B8837C500A318E6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044F64AA1B8837C500A318E6 /* LaunchScreen.xib */; };
 		044F64B81B8837C500A318E6 /* whendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64B71B8837C500A318E6 /* whendTests.swift */; };
-		044F64C61B8851E200A318E6 /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64C21B8851E200A318E6 /* MediaItem.swift */; };
-		044F64C71B8851E200A318E6 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64C31B8851E200A318E6 /* Tweet.swift */; };
-		044F64C81B8851E200A318E6 /* TwitterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64C41B8851E200A318E6 /* TwitterRequest.swift */; };
-		044F64CC1B8851EE00A318E6 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64CA1B8851EE00A318E6 /* TweetTableViewCell.swift */; };
-		044F64CD1B8851EE00A318E6 /* TweetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64CB1B8851EE00A318E6 /* TweetTableViewController.swift */; };
 		044F64CF1B885CDA00A318E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F64CE1B885CDA00A318E6 /* LoginViewController.swift */; };
 		047C3C201B8C475B006083A3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C3C1F1B8C475B006083A3 /* SignUpViewController.swift */; };
 		04E4F1C31B9D9A9000255D2E /* WallTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E4F1C21B9D9A9000255D2E /* WallTableViewController.swift */; };
@@ -50,11 +45,6 @@
 		044F64B11B8837C500A318E6 /* whendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = whendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		044F64B61B8837C500A318E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		044F64B71B8837C500A318E6 /* whendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = whendTests.swift; sourceTree = "<group>"; };
-		044F64C21B8851E200A318E6 /* MediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
-		044F64C31B8851E200A318E6 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
-		044F64C41B8851E200A318E6 /* TwitterRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterRequest.swift; sourceTree = "<group>"; };
-		044F64CA1B8851EE00A318E6 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
-		044F64CB1B8851EE00A318E6 /* TweetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewController.swift; sourceTree = "<group>"; };
 		044F64CE1B885CDA00A318E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		047C3C1F1B8C475B006083A3 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		04E4F1C21B9D9A9000255D2E /* WallTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallTableViewController.swift; sourceTree = "<group>"; };
@@ -110,14 +100,11 @@
 				044F64A31B8837C500A318E6 /* ViewController.swift */,
 				04E4F1C21B9D9A9000255D2E /* WallTableViewController.swift */,
 				04E4F1C41B9D9AAA00255D2E /* WallTableViewCell.swift */,
-				044F64CA1B8851EE00A318E6 /* TweetTableViewCell.swift */,
-				044F64CB1B8851EE00A318E6 /* TweetTableViewController.swift */,
 				044F64A51B8837C500A318E6 /* Main.storyboard */,
 				047C3C1F1B8C475B006083A3 /* SignUpViewController.swift */,
 				044F64CE1B885CDA00A318E6 /* LoginViewController.swift */,
 				044F64A81B8837C500A318E6 /* Images.xcassets */,
 				044F64AA1B8837C500A318E6 /* LaunchScreen.xib */,
-				044F64C11B8851E200A318E6 /* Twitter */,
 				044F649F1B8837C500A318E6 /* Supporting Files */,
 			);
 			path = whend;
@@ -146,16 +133,6 @@
 				044F64B61B8837C500A318E6 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		044F64C11B8851E200A318E6 /* Twitter */ = {
-			isa = PBXGroup;
-			children = (
-				044F64C21B8851E200A318E6 /* MediaItem.swift */,
-				044F64C31B8851E200A318E6 /* Tweet.swift */,
-				044F64C41B8851E200A318E6 /* TwitterRequest.swift */,
-			);
-			path = Twitter;
 			sourceTree = "<group>";
 		};
 		FAE7F1AE1B9EA17A00F6818D /* Model */ = {
@@ -274,18 +251,13 @@
 				044F64CF1B885CDA00A318E6 /* LoginViewController.swift in Sources */,
 				044F64A41B8837C500A318E6 /* ViewController.swift in Sources */,
 				FAE7F1B81B9EA20A00F6818D /* FacebookFriend.swift in Sources */,
-				044F64CD1B8851EE00A318E6 /* TweetTableViewController.swift in Sources */,
 				04E4F1C31B9D9A9000255D2E /* WallTableViewController.swift in Sources */,
-				044F64C81B8851E200A318E6 /* TwitterRequest.swift in Sources */,
 				047C3C201B8C475B006083A3 /* SignUpViewController.swift in Sources */,
 				044F64A21B8837C500A318E6 /* AppDelegate.swift in Sources */,
-				044F64C61B8851E200A318E6 /* MediaItem.swift in Sources */,
 				04E4F1C51B9D9AAA00255D2E /* WallTableViewCell.swift in Sources */,
 				FAE7F1B61B9EA1DB00F6818D /* Comment.swift in Sources */,
-				044F64C71B8851E200A318E6 /* Tweet.swift in Sources */,
 				FAE7F1B21B9EA1A200F6818D /* Schedule.swift in Sources */,
 				FAE7F1B41B9EA1AA00F6818D /* HashTag.swift in Sources */,
-				044F64CC1B8851EE00A318E6 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

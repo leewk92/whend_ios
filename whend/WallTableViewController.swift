@@ -10,9 +10,15 @@ import UIKit
 
 class WallTableViewController: UITableViewController {
 
+    var schedules:[Schedule] = []
+//    let data:NSDictionary = ["id":0,"title":"hi","allday":true, "like_count":0,"follow_count":0,"comment_count":0, "isLike":true, "isFollow":true ]
+    let schedule1 = Schedule()
+  //  schedules.append(Schedule())
+    
     override func viewDidLoad() {
+        schedules.append(Schedule())
         super.viewDidLoad()
-
+//        self.tableView.registerClass(WallTableViewCell.self, forHeaderFooterViewReuseIdentifier: "ScheduleItem")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -30,24 +36,36 @@ class WallTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        // return 0
+         print(self.schedules.count)
+        return self.schedules.count
     }
-
-    /*
+    
+    private struct StoryBoard {
+        static let CellReuseIdentifier = "ScheduleItem"
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
+        
+//        var cell:WallTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("ScheduleItem") as! WallTableViewCell
+        
+        
+       let cell = tableView.dequeueReusableCellWithIdentifier(StoryBoard.CellReuseIdentifier, forIndexPath: indexPath) as! WallTableViewCell
+//        schedule.append(Schedule())
+        cell.schedule = self.schedules[indexPath.row]
+        print(cell.schedule?.title)
+        //        cell.textLabel?.text = tweet.text
+        //        cell.detailTextLabel?.text = tweet.user.name
         // Configure the cell...
-
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

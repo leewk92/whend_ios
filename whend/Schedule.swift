@@ -95,8 +95,19 @@ public class Schedule{
             self.isFollow = false
             
         }
-        return nil
+        //return nil
         
+    }
+    
+    init(){
+        self.id = 0
+        self.title = "UnKnown"
+        self.allday = false
+        self.like_count = 0
+        self.follow_count = 0
+        self.comment_count = 0
+        self.isLike = false
+        self.isFollow = false
     }
     
     var asPropertyList: AnyObject {
