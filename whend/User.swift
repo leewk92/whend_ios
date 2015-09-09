@@ -68,7 +68,15 @@ public class User{
             self.count_follower = 0
            
         }
-        return nil
+    }
+    
+    init(){
+        self.username = "UnKnown"
+        self.id = 0
+        self.schedule_count = 0
+        self.count_following_user = 0
+        self.count_following_hashtag = 0
+        self.count_follower = 0
     }
     
     var asPropertyList: AnyObject {
