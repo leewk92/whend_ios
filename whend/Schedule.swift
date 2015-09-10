@@ -13,6 +13,10 @@ public class Schedule{
     var id: Int
     var title: String
     
+    var username: String
+    var user_photo: NSURL?
+    var user_id: Int
+    
     var starttime: String?
     var endtime: String?
     var starttime_ms: Int?
@@ -41,6 +45,9 @@ public class Schedule{
     init?(data: NSDictionary?) {
         let id = data?.valueForKeyPath(ScheduleKey.Id) as? Int
         let title = data?.valueForKeyPath(ScheduleKey.Title) as? String
+        let username = data?.valueForKeyPath(ScheduleKey.UserName) as? String
+        let user_photo = data?.valueForKeyPath(ScheduleKey.User_Photo) as? NSURL
+        let user_id = data?.valueForKeyPath(ScheduleKey.User_Id) as? Int
         let starttime = data?.valueForKeyPath(ScheduleKey.StartTime) as? String
         let endtime = data?.valueForKeyPath(ScheduleKey.EndTime) as? String
         let starttime_ms = data?.valueForKeyPath(ScheduleKey.StartTime_ms) as? Int
@@ -64,6 +71,9 @@ public class Schedule{
         if id != nil {
             self.id = id!
             self.title = title!
+            self.username = username!
+            self.user_photo = user_photo
+            self.user_id = user_id!
             self.starttime = starttime
             self.endtime = endtime
             self.starttime_ms = starttime_ms
@@ -87,6 +97,8 @@ public class Schedule{
         }else{
             self.id = 0
             self.title = "UnKnown"
+            self.username = "Unknown"
+            self.user_id = 0
             self.allday = false
             self.like_count = 0
             self.follow_count = 0
@@ -102,6 +114,8 @@ public class Schedule{
     init(){
         self.id = 0
         self.title = "UnKnown"
+        self.username = "Unknown"
+        self.user_id = 0
         self.allday = false
         self.like_count = 0
         self.follow_count = 0
@@ -143,6 +157,9 @@ public class Schedule{
         
         static let Id = "id"
         static let Title = "title"
+        static let UserName = "username"
+        static let User_Photo = "user_photo"
+        static let User_Id = "user_id"
         static let StartTime = "starttime"
         static let EndTime = "endtime"
         static let StartTime_ms = "starttime_ms"
