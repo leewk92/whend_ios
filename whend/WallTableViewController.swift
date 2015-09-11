@@ -11,7 +11,9 @@ import UIKit
 class WallTableViewController: UITableViewController {
 
     var schedules:[Schedule] = []
-
+    var nextUrl:NSURL?
+    var itemCount:Int = 0
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -24,6 +26,8 @@ class WallTableViewController: UITableViewController {
                 schedules.append(schedule)
             }
         }
+        itemCount = (restfulUtil.innerResult?.count)!
+        nextUrl = restfulUtil.nextUrl
         
         /*
         let outputJson = restfulUtil.outputJson!
@@ -186,6 +190,25 @@ class WallTableViewController: UITableViewController {
         //        cell.detailTextLabel?.text = tweet.user.name
         // Configure the cell...
         return cell
+    }
+    
+    // for endless scrolling
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if itemCount - indexPath.row == 2{
+            var url:NSURL = nextUrl!
+            var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes:HTTPRestfulUtilizer.RestType.GET(url: url))!
+            restfulUtil.requestRest()
+            if let items = restfulUtil.innerResult{
+                for item in items{
+                    let schedule:Schedule = Schedule(data: item)!
+                    schedules.append(schedule)
+                }
+            }
+            self.itemCount += (restfulUtil.innerResult?.count)!
+            nextUrl = restfulUtil.nextUrl
+            tableView.reloadData()
+        }
     }
     
 
