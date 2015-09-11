@@ -22,7 +22,7 @@ public class HTTPRestfulUtilizer{
     var urlData: NSData?
     var outputJson: NSDictionary?
     var outputData:NSString?
-    var innerResult: NSDictionary?
+    var innerResult: [NSDictionary]?
     
     enum RestType{
         case POST(url:NSURL, inputDict:Dictionary<String,String>)
@@ -108,10 +108,11 @@ public class HTTPRestfulUtilizer{
                 var error: NSError?
                 self.outputJson = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as? NSDictionary
                 
-                if let tmpInnerResult = outputJson!.valueForKey("results") as? NSDictionary?{
+                if let tmpInnerResult = outputJson!.valueForKey("results") as? [NSDictionary]{
                     self.innerResult = tmpInnerResult
                 }
-                if let tmpNextUrl = outputJson!.valueForKey("next") as? String?{
+                
+                if let tmpNextUrl = outputJson!.valueForKey("next") as? String {
                     self.nextUrl = NSURL(string: tmpNextUrl)
                 }
                 

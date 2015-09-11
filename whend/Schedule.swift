@@ -39,6 +39,7 @@ public class Schedule{
     
     var isLike: Bool
     var isFollow: Bool
+    var isMaster: Bool
     
     // MARK: - Private Implementation
     
@@ -67,6 +68,7 @@ public class Schedule{
         let comment_count = data?.valueForKeyPath(ScheduleKey.Comment_Count) as? Int
         let isLike = data?.valueForKeyPath(ScheduleKey.IsLike) as? Bool
         let isFollow = data?.valueForKeyPath(ScheduleKey.IsFollow) as? Bool
+        let isMaster = data?.valueForKeyPath(ScheduleKey.IsMaster) as? Bool
         
         if id != nil {
             self.id = id!
@@ -93,7 +95,7 @@ public class Schedule{
             self.comment_count = comment_count!
             self.isLike = isLike!
             self.isFollow = isFollow!
-            
+            self.isMaster = isMaster!
         }else{
             self.id = 0
             self.title = "UnKnown"
@@ -105,6 +107,7 @@ public class Schedule{
             self.comment_count = 0
             self.isLike = false
             self.isFollow = false
+            self.isMaster = false
             
         }
         //return nil
@@ -122,6 +125,7 @@ public class Schedule{
         self.comment_count = 0
         self.isLike = false
         self.isFollow = false
+        self.isMaster = false
     }
     
     var asPropertyList: AnyObject {
@@ -147,7 +151,7 @@ public class Schedule{
         dictionary[ScheduleKey.Comment_Count] = self.comment_count.description
         dictionary[ScheduleKey.IsLike] = self.isLike.description
         dictionary[ScheduleKey.IsFollow] = self.isFollow.description
-        
+        dictionary[ScheduleKey.IsMaster] = self.isMaster.description
         return dictionary
     }
     
@@ -157,11 +161,11 @@ public class Schedule{
         
         static let Id = "id"
         static let Title = "title"
-        static let UserName = "username"
+        static let UserName = "user_name"
         static let User_Photo = "user_photo"
         static let User_Id = "user_id"
-        static let StartTime = "starttime"
-        static let EndTime = "endtime"
+        static let StartTime = "start_time"
+        static let EndTime = "end_time"
         static let StartTime_ms = "starttime_ms"
         static let EndTime_ms = "endtime_ms"
         static let Date_Start = "date_start"
@@ -170,16 +174,16 @@ public class Schedule{
         static let Time_End = "time_end"
         static let Memo = "memo"
         static let Location = "location"
-        static let Photo_Dir = "photo_dir"
-        static let AllDay = "allday"
+        static let Photo_Dir = "photo"
+        static let AllDay = "all_day"
         static let TimeZone = "timezone"
         static let Color = "color"
-        static let Like_Count = "like_count"
-        static let Follow_Count = "follow_count"
-        static let Comment_Count = "comment_count"
-        static let IsLike = "isLike"
-        static let IsFollow = "isFollow"
-        
+        static let Like_Count = "count_like"
+        static let Follow_Count = "count_follow"
+        static let Comment_Count = "count_comment"
+        static let IsLike = "like"
+        static let IsFollow = "follow"
+        static let IsMaster = "master"
         }
     
 

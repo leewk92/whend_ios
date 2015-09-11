@@ -13,19 +13,25 @@ class WallTableViewController: UITableViewController {
     var schedules:[Schedule] = []
 
     override func viewDidLoad() {
-        schedules.append(Schedule())
+        
         super.viewDidLoad()
-        print(3)
-        var params = ["username": "ji" , "password": "gh"]  as Dictionary<String, String>
-        var url:NSURL = NSURL(string: "http://119.81.176.245/schedules/1/")!
+        var url:NSURL = NSURL(string: "http://119.81.176.245/schedules/")!
         var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes: HTTPRestfulUtilizer.RestType.GET(url: url))!
         restfulUtil.requestRest()
+        if let items = restfulUtil.innerResult{
+            for item in items{
+                let schedule:Schedule = Schedule(data: item)!
+                schedules.append(schedule)
+            }
+        }
+        
+        /*
         let outputJson = restfulUtil.outputJson!
         
         let success = outputJson.valueForKey("title") as? String
         schedules[0].title = success!
         schedules[0].username = (outputJson.valueForKey("user_name") as? String)!
-        
+        */
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
