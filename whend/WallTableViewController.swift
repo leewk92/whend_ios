@@ -25,7 +25,7 @@ class WallTableViewController: UITableViewController {
         request.setValue("no-cache", forHTTPHeaderField: "Cache-Control")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json;charset=utf-8", forHTTPHeaderField: "Accept")
-        request.setValue("Token a7311a1eebb197a53e330add91d29c05b2fb8f40", forHTTPHeaderField: "Authorization")
+        request.setValue("Token d1e9cfab3ed0d118ab0e5ea7b088c42fc95dc1dd", forHTTPHeaderField: "Authorization")
         
         
         var reponseError: NSError?
@@ -55,12 +55,15 @@ class WallTableViewController: UITableViewController {
                 
                 
                 let success = jsonData.valueForKey("title") as? String
+                let dateString = jsonData.valueForKey("start_time") as? String
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                let startdate = dateFormatter.dateFromString(dateString!)
                 
                 //var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
                 //let success = jsonData.valueForKey("key") as? String
                 //[jsonData[@"success"] integerValue];
-                
-                print("Success: %@", success!);
+
                 
                 if((success?.isEmpty) != nil)
                 {
@@ -71,8 +74,8 @@ class WallTableViewController: UITableViewController {
 //                    prefs.setInteger(1, forKey: "ISLOGGEDIN")
 //                    prefs.synchronize()
                     schedules[0].title = success!
-
-                    
+                    schedules[0].starttime = startdate?.description
+                    print(startdate?.description)
                     self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
                     var error_msg:NSString
