@@ -101,6 +101,7 @@ class WallTableViewController: UITableViewController {
 //                    NSLog("Login SUCCESS");
 //                    
 //                    //var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    
 ////                    prefs.setObject(username, forKey: "USERNAME")
 ////                    prefs.setInteger(1, forKey: "ISLOGGEDIN")
 ////                    prefs.synchronize()
@@ -189,6 +190,13 @@ class WallTableViewController: UITableViewController {
         //        cell.textLabel?.text = tweet.text
         //        cell.detailTextLabel?.text = tweet.user.name
         // Configure the cell...
+        
+//        if let tmpPhoto_dir = cell.schedule?.photo_dir {
+//            var getImageUtil = HTTPRestfulUtilizer()
+//            getImageUtil.getUrlImage(&cell.schedulePhoto, _url: tmpPhoto_dir)
+//        }
+//        
+        
         return cell
     }
     

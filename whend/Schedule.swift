@@ -59,7 +59,10 @@ public class Schedule{
         let time_end = data?.valueForKeyPath(ScheduleKey.Time_End) as? String
         let memo = data?.valueForKeyPath(ScheduleKey.Memo) as? String
         let location = data?.valueForKeyPath(ScheduleKey.Location) as? String
-        let photo_dir = data?.valueForKeyPath(ScheduleKey.Photo_Dir) as? NSURL
+        var photo_dir:NSURL? = nil
+        if let s_photo_dir = data?.valueForKeyPath(ScheduleKey.Photo_Dir) as? String{
+            photo_dir = NSURL(string: s_photo_dir)
+        }
         let allday = data?.valueForKeyPath(ScheduleKey.AllDay) as? Bool
         let timezone = data?.valueForKeyPath(ScheduleKey.TimeZone) as? String
         let color = data?.valueForKeyPath(ScheduleKey.Color) as? String

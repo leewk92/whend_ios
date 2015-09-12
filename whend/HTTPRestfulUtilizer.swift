@@ -146,6 +146,45 @@ public class HTTPRestfulUtilizer{
 //        prefs.synchronize()
         
     }
+    
+    func getUrlImage( inout _target:UIImageView!, _url:NSURL ){
+        let request: NSURLRequest = NSURLRequest(URL: _url)
+        let mainQueue = NSOperationQueue.mainQueue()
+        NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response: NSURLResponse!, data :NSData!, error:NSError!) -> Void in
+            if error == nil {
+                if let httpResponse = response as? NSHTTPURLResponse {
+                    let statusCode = httpResponse.statusCode
+                    if statusCode != 200 {
+//                        var _named = "";
+//                        
+//                        if _type == "1" {
+//                            _named = "t-m.jpg"
+//                        }else if _type == "2"{
+//                            _named = "t-w.jpg"
+//                        }
+//                        
+//                        let image = UIImage(named: _named)!
+//                        // Update the cell
+//                        dispatch_async(dispatch_get_main_queue(), {
+//                            _target.image = image
+//                        })
+                        
+                    }else{
+                        // Convert the downloaded data in to a UIImage objectwl
+                        let image = UIImage(data: data)
+                        
+                        // Update the cell
+                        dispatch_async(dispatch_get_main_queue(), {
+                            _target.image = image
+                        })
+                    }
+                }
+                
+            }
+            else {}
+        })
+    }
+
 }
 
 

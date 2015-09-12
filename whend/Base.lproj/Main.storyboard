@@ -497,6 +497,9 @@
                                                     <exclude reference="EQM-bl-MvM"/>
                                                 </mask>
                                             </variation>
+                                            <connections>
+                                                <action selector="likeButton:" destination="MRY-52-bqi" eventType="touchUpInside" id="vQ6-ur-y9F"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5G-kY-FbK">
                                             <rect key="frame" x="80" y="259" width="25" height="25"/>
@@ -642,6 +645,7 @@
                                     <outlet property="scheduleFollowLabel" destination="Q3v-ZE-xH2" id="wCz-lV-9HA"/>
                                     <outlet property="scheduleLikeLabel" destination="UCs-HN-rji" id="c0f-cD-jJd"/>
                                     <outlet property="scheduleLocationLabel" destination="SSm-oO-q08" id="ZCx-y9-mZz"/>
+                                    <outlet property="schedulePhoto" destination="MUr-L7-pDk" id="ST2-yG-gg6"/>
                                     <outlet property="scheduleTimeLabel" destination="G97-KO-5sB" id="bPY-18-J7k"/>
                                     <outlet property="scheduleTitleLabel" destination="0Y9-Ht-taS" id="75G-vq-PxM"/>
                                     <outlet property="scheduleUserNameLabel" destination="YJl-uB-Lxd" id="P3y-gk-M1I"/>
