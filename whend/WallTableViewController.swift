@@ -15,106 +15,20 @@ class WallTableViewController: UITableViewController {
     var itemCount:Int = 0
     
     override func viewDidLoad() {
-        schedules.append(Schedule())
+        
         super.viewDidLoad()
-//        self.tableView.registerClass(WallTableViewCell.self, forHeaderFooterViewReuseIdentifier: "ScheduleItem")
-        var params = ["username": "ji" , "password": "gh"]  as Dictionary<String, String>
-        var err: NSError?
-        var url:NSURL = NSURL(string: "http://119.81.176.245/schedules/1/")!
-        var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "Get"
-        //request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error : &err)        //request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
-        request.setValue("no-cache", forHTTPHeaderField: "Cache-Control")
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json;charset=utf-8", forHTTPHeaderField: "Accept")
-        request.setValue("Token d1e9cfab3ed0d118ab0e5ea7b088c42fc95dc1dd", forHTTPHeaderField: "Authorization")
-        
-        
-        var reponseError: NSError?
-        var response: NSURLResponse?
-        
-        var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
-        
-        if ( urlData != nil ) {
-            let res = response as! NSHTTPURLResponse!;
-            
-            NSLog("Response code: %ld", res.statusCode);
-            
-            var responseData:NSString  = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
-            
-            NSLog("Response ==> %@", responseData);
-            
-            if (res.statusCode >= 200 && res.statusCode < 300)
-            {
-                var responseData:NSString  = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
-                
-                NSLog("Response ==> %@", responseData);
-                
-                var error: NSError?
-                
-                let jsonData = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as! NSDictionary
-                
-                
-                
-                let success = jsonData.valueForKey("title") as? String
-                let dateString = jsonData.valueForKey("start_time") as? String
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-                let startdate = dateFormatter.dateFromString(dateString!)
-                
-                //var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
-                //let success = jsonData.valueForKey("key") as? String
-                //[jsonData[@"success"] integerValue];
-
-                
-                if((success?.isEmpty) != nil)
-                {
-                    NSLog("Login SUCCESS");
-                    
-                    //var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-//                    prefs.setObject(username, forKey: "USERNAME")
-//                    prefs.setInteger(1, forKey: "ISLOGGEDIN")
-//                    prefs.synchronize()
-                    schedules[0].title = success!
-                    schedules[0].starttime = startdate?.description
-                    print(startdate?.description)
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                } else {
-                    var error_msg:NSString
-                    
-                    if jsonData["error_message"] as? NSString != nil {
-                        error_msg = jsonData["error_message"] as! NSString
-                    } else {
-                        error_msg = "Unknown Error"
-                    }
-                    var alertView:UIAlertView = UIAlertView()
-                    alertView.title = "Sign in Failed!"
-                    alertView.message = error_msg as String
-                    alertView.delegate = self
-                    alertView.addButtonWithTitle("OK")
-                    alertView.show()
-                    
-                }
-                
-            } else {
-                var alertView:UIAlertView = UIAlertView()
-                alertView.title = "Sign in Failed!"
-                alertView.message = "Connection Failed"
-                alertView.delegate = self
-                alertView.addButtonWithTitle("OK")
-                alertView.show()
-            }
-        } else {
-            var alertView:UIAlertView = UIAlertView()
-            alertView.title = "Sign in Failed!"
-            alertView.message = "Connection Failure"
-            if let error = reponseError {
-                alertView.message = (error.localizedDescription)
+        var url:NSURL = NSURL(string: "http://119.81.176.245/schedules/")!
+        var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes: HTTPRestfulUtilizer.RestType.GET(url: url))!
+        restfulUtil.requestRest()
+        if let items = restfulUtil.innerResult{
+            for item in items{
+                let schedule:Schedule = Schedule(data: item)!
+                schedules.append(schedule)
             }
         }
-        
         itemCount = (restfulUtil.innerResult?.count)!
         nextUrl = restfulUtil.nextUrl
+        
         /*
         let outputJson = restfulUtil.outputJson!
         
@@ -294,8 +208,6 @@ class WallTableViewController: UITableViewController {
             self.itemCount += (restfulUtil.innerResult?.count)!
             nextUrl = restfulUtil.nextUrl
             tableView.reloadData()
-            
-            
         }
     }
     
