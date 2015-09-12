@@ -34,6 +34,8 @@ class WallTableViewCell: UITableViewCell {
     
     @IBOutlet weak var schedulePhoto: UIImageView!
     
+    @IBOutlet weak var userPhoto: UIImageView!
+    
     func updateUI() {
         scheduleUserNameLabel?.text = nil
         scheduleTitleLabel?.text = nil
@@ -54,19 +56,22 @@ class WallTableViewCell: UITableViewCell {
             scheduleLikeLabel?.text = String(schedule.like_count)
             scheduleFollowLabel?.text = String(schedule.follow_count)
             scheduleCommentLabel?.text = String(schedule.comment_count)
-            println(schedule.photo_dir)
             if let tmpPhoto_dir = schedule.photo_dir {
-                //println(tmpPhoto_dir)
-                getSchedulePhoto( &schedulePhoto, url: tmpPhoto_dir)
+                
+                getPhoto( &schedulePhoto, url: tmpPhoto_dir)
+            }
+            if let tmpUserPhoto_dir = schedule.user_photo {
+                
+                getPhoto( &userPhoto, url: tmpUserPhoto_dir)
             }
             
         }
     }
     
-    func getSchedulePhoto( inout schedulePhoto:UIImageView!, url:NSURL){
+    func getPhoto( inout photo:UIImageView!, url:NSURL){
         var url:NSURL = url
         var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer()
-        restfulUtil.getUrlImage( &schedulePhoto, _url: url)
+        restfulUtil.getUrlImage( &photo, _url: url)
     }
     
     override func awakeFromNib() {

@@ -47,7 +47,11 @@ public class Schedule{
         let id = data?.valueForKeyPath(ScheduleKey.Id) as? Int
         let title = data?.valueForKeyPath(ScheduleKey.Title) as? String
         let username = data?.valueForKeyPath(ScheduleKey.UserName) as? String
-        let user_photo = data?.valueForKeyPath(ScheduleKey.User_Photo) as? NSURL
+        var user_photo:NSURL? = nil
+        if let s_user_photo = data?.valueForKeyPath(ScheduleKey.User_Photo) as? String{
+            user_photo = NSURL(string: s_user_photo)
+        }
+
         let user_id = data?.valueForKeyPath(ScheduleKey.User_Id) as? Int
         let starttime = data?.valueForKeyPath(ScheduleKey.StartTime) as? String
         let endtime = data?.valueForKeyPath(ScheduleKey.EndTime) as? String
