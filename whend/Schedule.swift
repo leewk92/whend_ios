@@ -13,6 +13,10 @@ public class Schedule{
     var id: Int
     var title: String
     
+    var username: String
+    var user_photo: NSURL?
+    var user_id: Int
+    
     var starttime: String?
     var endtime: String?
     var starttime_ms: Int?
@@ -35,12 +39,16 @@ public class Schedule{
     
     var isLike: Bool
     var isFollow: Bool
+    var isMaster: Bool
     
     // MARK: - Private Implementation
     
     init?(data: NSDictionary?) {
         let id = data?.valueForKeyPath(ScheduleKey.Id) as? Int
         let title = data?.valueForKeyPath(ScheduleKey.Title) as? String
+        let username = data?.valueForKeyPath(ScheduleKey.UserName) as? String
+        let user_photo = data?.valueForKeyPath(ScheduleKey.User_Photo) as? NSURL
+        let user_id = data?.valueForKeyPath(ScheduleKey.User_Id) as? Int
         let starttime = data?.valueForKeyPath(ScheduleKey.StartTime) as? String
         let endtime = data?.valueForKeyPath(ScheduleKey.EndTime) as? String
         let starttime_ms = data?.valueForKeyPath(ScheduleKey.StartTime_ms) as? Int
@@ -60,10 +68,14 @@ public class Schedule{
         let comment_count = data?.valueForKeyPath(ScheduleKey.Comment_Count) as? Int
         let isLike = data?.valueForKeyPath(ScheduleKey.IsLike) as? Bool
         let isFollow = data?.valueForKeyPath(ScheduleKey.IsFollow) as? Bool
+        let isMaster = data?.valueForKeyPath(ScheduleKey.IsMaster) as? Bool
         
         if id != nil {
             self.id = id!
             self.title = title!
+            self.username = username!
+            self.user_photo = user_photo
+            self.user_id = user_id!
             self.starttime = starttime
             self.endtime = endtime
             self.starttime_ms = starttime_ms
@@ -83,16 +95,19 @@ public class Schedule{
             self.comment_count = comment_count!
             self.isLike = isLike!
             self.isFollow = isFollow!
-            
+            self.isMaster = isMaster!
         }else{
             self.id = 0
             self.title = "UnKnown"
+            self.username = "Unknown"
+            self.user_id = 0
             self.allday = false
             self.like_count = 0
             self.follow_count = 0
             self.comment_count = 0
             self.isLike = false
             self.isFollow = false
+            self.isMaster = false
             
         }
         //return nil
@@ -102,12 +117,15 @@ public class Schedule{
     init(){
         self.id = 0
         self.title = "UnKnown"
+        self.username = "Unknown"
+        self.user_id = 0
         self.allday = false
         self.like_count = 0
         self.follow_count = 0
         self.comment_count = 0
         self.isLike = false
         self.isFollow = false
+        self.isMaster = false
     }
     
     var asPropertyList: AnyObject {
@@ -133,7 +151,7 @@ public class Schedule{
         dictionary[ScheduleKey.Comment_Count] = self.comment_count.description
         dictionary[ScheduleKey.IsLike] = self.isLike.description
         dictionary[ScheduleKey.IsFollow] = self.isFollow.description
-        
+        dictionary[ScheduleKey.IsMaster] = self.isMaster.description
         return dictionary
     }
     
@@ -143,8 +161,11 @@ public class Schedule{
         
         static let Id = "id"
         static let Title = "title"
-        static let StartTime = "starttime"
-        static let EndTime = "endtime"
+        static let UserName = "user_name"
+        static let User_Photo = "user_photo"
+        static let User_Id = "user_id"
+        static let StartTime = "start_time"
+        static let EndTime = "end_time"
         static let StartTime_ms = "starttime_ms"
         static let EndTime_ms = "endtime_ms"
         static let Date_Start = "date_start"
@@ -153,16 +174,16 @@ public class Schedule{
         static let Time_End = "time_end"
         static let Memo = "memo"
         static let Location = "location"
-        static let Photo_Dir = "photo_dir"
-        static let AllDay = "allday"
+        static let Photo_Dir = "photo"
+        static let AllDay = "all_day"
         static let TimeZone = "timezone"
         static let Color = "color"
-        static let Like_Count = "like_count"
-        static let Follow_Count = "follow_count"
-        static let Comment_Count = "comment_count"
-        static let IsLike = "isLike"
-        static let IsFollow = "isFollow"
-        
+        static let Like_Count = "count_like"
+        static let Follow_Count = "count_follow"
+        static let Comment_Count = "count_comment"
+        static let IsLike = "like"
+        static let IsFollow = "follow"
+        static let IsMaster = "master"
         }
     
 

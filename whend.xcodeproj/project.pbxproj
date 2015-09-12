@@ -17,6 +17,8 @@
 		047C3C201B8C475B006083A3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C3C1F1B8C475B006083A3 /* SignUpViewController.swift */; };
 		04E4F1C31B9D9A9000255D2E /* WallTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E4F1C21B9D9A9000255D2E /* WallTableViewController.swift */; };
 		04E4F1C51B9D9AAA00255D2E /* WallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E4F1C41B9D9AAA00255D2E /* WallTableViewCell.swift */; };
+		FAE13E7D1BA148190075FA9A /* HTTPRestfulUtilizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE13E7C1BA148190075FA9A /* HTTPRestfulUtilizer.swift */; };
+		FAE13E7F1BA1485C0075FA9A /* AppPref.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE13E7E1BA1485C0075FA9A /* AppPref.swift */; };
 		FAE7F1B01B9EA19500F6818D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE7F1AF1B9EA19500F6818D /* User.swift */; };
 		FAE7F1B21B9EA1A200F6818D /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE7F1B11B9EA1A200F6818D /* Schedule.swift */; };
 		FAE7F1B41B9EA1AA00F6818D /* HashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE7F1B31B9EA1AA00F6818D /* HashTag.swift */; };
@@ -49,6 +51,8 @@
 		047C3C1F1B8C475B006083A3 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		04E4F1C21B9D9A9000255D2E /* WallTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallTableViewController.swift; sourceTree = "<group>"; };
 		04E4F1C41B9D9AAA00255D2E /* WallTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallTableViewCell.swift; sourceTree = "<group>"; };
+		FAE13E7C1BA148190075FA9A /* HTTPRestfulUtilizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRestfulUtilizer.swift; sourceTree = "<group>"; };
+		FAE13E7E1BA1485C0075FA9A /* AppPref.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPref.swift; sourceTree = "<group>"; };
 		FAE7F1AF1B9EA19500F6818D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FAE7F1B11B9EA1A200F6818D /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		FAE7F1B31B9EA1AA00F6818D /* HashTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashTag.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 		044F649E1B8837C500A318E6 /* whend */ = {
 			isa = PBXGroup;
 			children = (
+				FAE13E7B1BA147AA0075FA9A /* Util */,
 				FAE7F1AE1B9EA17A00F6818D /* Model */,
 				044F64A11B8837C500A318E6 /* AppDelegate.swift */,
 				044F64A31B8837C500A318E6 /* ViewController.swift */,
@@ -133,6 +138,15 @@
 				044F64B61B8837C500A318E6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FAE13E7B1BA147AA0075FA9A /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				FAE13E7C1BA148190075FA9A /* HTTPRestfulUtilizer.swift */,
+				FAE13E7E1BA1485C0075FA9A /* AppPref.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 		FAE7F1AE1B9EA17A00F6818D /* Model */ = {
@@ -248,12 +262,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAE7F1B01B9EA19500F6818D /* User.swift in Sources */,
+				FAE13E7D1BA148190075FA9A /* HTTPRestfulUtilizer.swift in Sources */,
 				044F64CF1B885CDA00A318E6 /* LoginViewController.swift in Sources */,
 				044F64A41B8837C500A318E6 /* ViewController.swift in Sources */,
 				FAE7F1B81B9EA20A00F6818D /* FacebookFriend.swift in Sources */,
 				04E4F1C31B9D9A9000255D2E /* WallTableViewController.swift in Sources */,
 				047C3C201B8C475B006083A3 /* SignUpViewController.swift in Sources */,
 				044F64A21B8837C500A318E6 /* AppDelegate.swift in Sources */,
+				FAE13E7F1BA1485C0075FA9A /* AppPref.swift in Sources */,
 				04E4F1C51B9D9AAA00255D2E /* WallTableViewCell.swift in Sources */,
 				FAE7F1B61B9EA1DB00F6818D /* Comment.swift in Sources */,
 				FAE7F1B21B9EA1A200F6818D /* Schedule.swift in Sources */,
@@ -385,6 +401,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = whend/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -395,6 +412,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = whend/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

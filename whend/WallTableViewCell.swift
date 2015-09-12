@@ -44,7 +44,7 @@ class WallTableViewCell: UITableViewCell {
         
         if let schedule = self.schedule
         {
-            scheduleUserNameLabel?.text = schedule.title
+            scheduleUserNameLabel?.text = schedule.username
             scheduleTitleLabel?.text = schedule.title
             scheduleDateLabel?.text = schedule.starttime
             scheduleTimeLabel?.text = schedule.endtime
