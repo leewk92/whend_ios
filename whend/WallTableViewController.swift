@@ -112,9 +112,9 @@ class WallTableViewController: UITableViewController {
                 alertView.message = (error.localizedDescription)
             }
         }
+        
         itemCount = (restfulUtil.innerResult?.count)!
         nextUrl = restfulUtil.nextUrl
-        
         /*
         let outputJson = restfulUtil.outputJson!
         
@@ -294,6 +294,8 @@ class WallTableViewController: UITableViewController {
             self.itemCount += (restfulUtil.innerResult?.count)!
             nextUrl = restfulUtil.nextUrl
             tableView.reloadData()
+            
+            
         }
     }
     
