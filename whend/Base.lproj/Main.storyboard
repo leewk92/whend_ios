@@ -270,7 +270,7 @@
                                                 <constraint firstAttribute="height" constant="20" id="mbg-QC-Xw9"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="time_300" translatesAutoresizingMaskIntoConstraints="NO" id="OYS-Wf-j8r">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="time_300" translatesAutoresizingMaskIntoConstraints="NO" id="OYS-Wf-j8r">
                                             <rect key="frame" x="205" y="69" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="6ZC-se-ry9"/>
@@ -348,7 +348,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PwX-v7-KAI">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PwX-v7-KAI">
                                             <rect key="frame" x="233" y="72" width="162" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -428,11 +428,11 @@
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="6q7-u4-oaJ"/>
-                                            <exclude reference="YRT-0j-0Dx"/>
                                             <exclude reference="WK1-eq-VGb"/>
-                                            <exclude reference="k1X-hO-nww"/>
-                                            <exclude reference="HPe-49-b3n"/>
+                                            <exclude reference="YRT-0j-0Dx"/>
                                             <exclude reference="CYu-87-HwM"/>
+                                            <exclude reference="HPe-49-b3n"/>
+                                            <exclude reference="k1X-hO-nww"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
