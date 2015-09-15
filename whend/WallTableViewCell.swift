@@ -36,6 +36,8 @@ class WallTableViewCell: UITableViewCell {
     
     @IBOutlet weak var userPhoto: UIImageView!
     
+    @IBOutlet weak var likeImageView: UIButton!
+    
     func updateUI() {
         scheduleUserNameLabel?.text = nil
         scheduleTitleLabel?.text = nil
@@ -63,6 +65,11 @@ class WallTableViewCell: UITableViewCell {
             if let tmpUserPhoto_dir = schedule.user_photo {
                 
                 getPhoto( &userPhoto, url: tmpUserPhoto_dir)
+            }
+            
+            // println(schedule.isLike)
+            if schedule.isLike{
+                likeImageView.setImage(UIImage(named: "liked"), forState: UIControlState.Normal)
             }
             
         }

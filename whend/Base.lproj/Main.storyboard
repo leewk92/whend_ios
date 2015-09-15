@@ -751,6 +751,7 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="likeImageView" destination="grb-0b-aSW" id="ivd-3V-6Pl"/>
                                     <outlet property="scheduleCommentLabel" destination="LWl-lV-hvW" id="UuB-ED-6iZ"/>
                                     <outlet property="scheduleDateLabel" destination="G0B-IZ-nk5" id="U2f-GT-tZj"/>
                                     <outlet property="scheduleFollowLabel" destination="Q3v-ZE-xH2" id="wCz-lV-9HA"/>
