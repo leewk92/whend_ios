@@ -71,9 +71,36 @@ class WallTableViewCell: UITableViewCell {
             if schedule.isLike{
                 likeImageView.setImage(UIImage(named: "liked"), forState: UIControlState.Normal)
             }
-            
+            else{
+                likeImageView.setImage(UIImage(named: "like"), forState: UIControlState.Normal)
+            }
+            likeImageView.addTarget(self, action: Selector("clickLikeButton:"), forControlEvents: UIControlEvents.TouchUpInside)
         }
     }
+    
+    
+    @IBAction func clickLikeButton(sender: UIButton) {
+        
+        schedule?.likeButtonClicked()
+        updateUI()
+        
+        var url_string = "http://119.81.176.245/schedules/\(schedule!.id)/like/"
+        println(url_string)
+        var url:NSURL = NSURL(string: url_string)!
+        var inputDict = ["username": "useless", "password": "data"] as Dictionary<String, String>
+        var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes: HTTPRestfulUtilizer.RestType.PUT(url: url, inputDict: inputDict))!
+        restfulUtil.requestRest()
+        
+//        
+//        url_string = "http://119.81.176.245/schedules/\(schedule!.id)/"
+//        url = NSURL(string: url_string)!
+//        restfulUtil = HTTPRestfulUtilizer(restTypes: HTTPRestfulUtilizer.RestType.GET(url: url))!
+//        restfulUtil.requestRest()
+//        var new_schedule = Schedule(data: restfulUtil.outputJson)
+//        self.schedule = new_schedule
+//        updateUI()
+    }
+    
     
     func getPhoto( inout photo:UIImageView!, url:NSURL){
         var url:NSURL = url

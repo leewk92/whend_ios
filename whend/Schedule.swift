@@ -191,7 +191,17 @@ public class Schedule{
         static let IsLike = "like"
         static let IsFollow = "follow"
         static let IsMaster = "master"
-        }
+    }
     
+    func likeButtonClicked() {
+        if self.isLike{
+            self.isLike = false
+            like_count = like_count - 1
+        }
+        else {
+            self.isLike = true
+            like_count = like_count + 1
+        }
+    }
 
 }

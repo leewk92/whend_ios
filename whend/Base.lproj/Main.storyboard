@@ -609,7 +609,7 @@
                                                 </mask>
                                             </variation>
                                             <connections>
-                                                <action selector="likeButton:" destination="MRY-52-bqi" eventType="touchUpInside" id="vQ6-ur-y9F"/>
+                                                <action selector="clickLikeButton:" destination="yrn-Vd-sko" eventType="touchUpInside" id="YYv-1X-p4e"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5G-kY-FbK">
