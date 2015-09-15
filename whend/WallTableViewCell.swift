@@ -60,11 +60,11 @@ class WallTableViewCell: UITableViewCell {
             scheduleCommentLabel?.text = String(schedule.comment_count)
             if let tmpPhoto_dir = schedule.photo_dir {
                 
-                getPhoto( &schedulePhoto, url: tmpPhoto_dir)
+                getPhoto( &schedulePhoto, url: tmpPhoto_dir , _imageDestination: HTTPRestfulUtilizer.imageDestination.wall)
             }
             if let tmpUserPhoto_dir = schedule.user_photo {
                 
-                getPhoto( &userPhoto, url: tmpUserPhoto_dir)
+                getPhoto( &userPhoto, url: tmpUserPhoto_dir, _imageDestination: HTTPRestfulUtilizer.imageDestination.profile)
             }
             
             // println(schedule.isLike)
@@ -102,10 +102,10 @@ class WallTableViewCell: UITableViewCell {
     }
     
     
-    func getPhoto( inout photo:UIImageView!, url:NSURL){
+    func getPhoto( inout photo:UIImageView!, url:NSURL, _imageDestination: HTTPRestfulUtilizer.imageDestination){
         var url:NSURL = url
         var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer()
-        restfulUtil.getUrlImage( &photo, _url: url)
+        restfulUtil.getUrlImage( &photo, _url: url, _imageDestination: _imageDestination)
     }
     
     override func awakeFromNib() {

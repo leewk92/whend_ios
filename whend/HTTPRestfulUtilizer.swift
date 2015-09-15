@@ -147,8 +147,28 @@ public class HTTPRestfulUtilizer{
         
     }
     
-    func getUrlImage( inout _target:UIImageView!, _url:NSURL ){
-        let request: NSURLRequest = NSURLRequest(URL: _url)
+    enum imageDestination{
+        case wall
+        case original
+        case profile
+    }
+    
+    func getUrlImage( inout _target:UIImageView!, _url:NSURL , _imageDestination:imageDestination){
+        
+        var string_url = _url.absoluteString! as NSString
+        var tmp_url:String
+        switch _imageDestination{
+        case .wall:
+            tmp_url = string_url.substringToIndex(string_url.length - 4).stringByAppendingString(".800x200.jpg")
+        case .original:
+            tmp_url = string_url as String
+        case .profile:
+            tmp_url = string_url.substringToIndex(string_url.length - 4).stringByAppendingString(".100x100.jpg")
+        }
+        
+        println(tmp_url)
+        
+        let request: NSURLRequest = NSURLRequest(URL: NSURL(string: tmp_url)!)
         let mainQueue = NSOperationQueue.mainQueue()
         NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response: NSURLResponse!, data :NSData!, error:NSError!) -> Void in
             if error == nil {
