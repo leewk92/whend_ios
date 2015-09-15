@@ -609,7 +609,7 @@
                                                 </mask>
                                             </variation>
                                             <connections>
-                                                <action selector="likeButton:" destination="MRY-52-bqi" eventType="touchUpInside" id="vQ6-ur-y9F"/>
+                                                <action selector="clickLikeButton:" destination="yrn-Vd-sko" eventType="touchUpInside" id="YYv-1X-p4e"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5G-kY-FbK">
@@ -751,6 +751,7 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="likeImageView" destination="grb-0b-aSW" id="ivd-3V-6Pl"/>
                                     <outlet property="scheduleCommentLabel" destination="LWl-lV-hvW" id="UuB-ED-6iZ"/>
                                     <outlet property="scheduleDateLabel" destination="G0B-IZ-nk5" id="U2f-GT-tZj"/>
                                     <outlet property="scheduleFollowLabel" destination="Q3v-ZE-xH2" id="wCz-lV-9HA"/>
