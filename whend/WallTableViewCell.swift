@@ -89,7 +89,7 @@ class WallTableViewCell: UITableViewCell {
         var url:NSURL = NSURL(string: url_string)!
         var inputDict = ["username": "useless", "password": "data"] as Dictionary<String, String>
         var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes: HTTPRestfulUtilizer.RestType.PUT(url: url, inputDict: inputDict))!
-        restfulUtil.requestRest()
+        restfulUtil.requestRestAsync()
         
 //        
 //        url_string = "http://119.81.176.245/schedules/\(schedule!.id)/"

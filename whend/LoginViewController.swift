@@ -53,7 +53,7 @@ class LoginViewController: UIViewController {
             var url:NSURL = NSURL(string: "http://119.81.176.245/rest-auth/login/")!
             
             var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes: HTTPRestfulUtilizer.RestType.POST(url: url,inputDict: params))!
-            restfulUtil.requestRest()
+            restfulUtil.requestRestSync()
             let outputJson = restfulUtil.outputJson!
             
             let token = outputJson.valueForKey("key") as? String

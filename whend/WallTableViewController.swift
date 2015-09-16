@@ -19,7 +19,7 @@ class WallTableViewController: UITableViewController {
         super.viewDidLoad()
         var url:NSURL = NSURL(string: "http://119.81.176.245/schedules/")!
         var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes: HTTPRestfulUtilizer.RestType.GET(url: url))!
-        restfulUtil.requestRest()
+        restfulUtil.requestRestSync()
         if let items = restfulUtil.innerResult{
             for item in items{
                 let schedule:Schedule = Schedule(data: item)!
@@ -206,7 +206,7 @@ class WallTableViewController: UITableViewController {
         if itemCount - indexPath.row == 2{
             var url:NSURL = nextUrl!
             var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes:HTTPRestfulUtilizer.RestType.GET(url: url))!
-            restfulUtil.requestRest()
+            restfulUtil.requestRestSync()
             if let items = restfulUtil.innerResult{
                 for item in items{
                     let schedule:Schedule = Schedule(data: item)!

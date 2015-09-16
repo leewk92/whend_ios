@@ -77,7 +77,7 @@ public class HTTPRestfulUtilizer{
         }
         
     }
-    func requestRest(){
+    func requestRestSync(){
         //request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
         request!.setValue("no-cache", forHTTPHeaderField: "Cache-Control")
         request!.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -90,8 +90,7 @@ public class HTTPRestfulUtilizer{
             
         }
         // request!.setValue("Token d1e9cfab3ed0d118ab0e5ea7b088c42fc95dc1dd", forHTTPHeaderField: "Authorization")
-        
-        
+        //
         urlData = NSURLConnection.sendSynchronousRequest(request!, returningResponse:&response, error:&reponseError)
         if ( urlData != nil ) {
             let res = response as! NSHTTPURLResponse!;
@@ -137,6 +136,65 @@ public class HTTPRestfulUtilizer{
         }
     }
     
+    func requestRestAsync(){
+        //request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
+        request!.setValue("no-cache", forHTTPHeaderField: "Cache-Control")
+        request!.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request!.setValue("application/json;charset=utf-8", forHTTPHeaderField: "Accept")
+        
+        // Get Token
+        var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        if let token = prefs.objectForKey("TOKEN") as? String{
+            request!.setValue("Token \(token)", forHTTPHeaderField: "Authorization")
+            
+        }
+        // request!.setValue("Token d1e9cfab3ed0d118ab0e5ea7b088c42fc95dc1dd", forHTTPHeaderField: "Authorization")
+        let mainQueue = NSOperationQueue.mainQueue()
+        NSURLConnection.sendAsynchronousRequest(request!, queue: mainQueue, completionHandler: { (response: NSURLResponse!, urlData :NSData!, error:NSError!) -> Void in
+            println(urlData!)
+            if error == nil {
+                if let response = response as? NSHTTPURLResponse {
+                    let statusCode = response.statusCode
+                    
+                    self.outputData = NSString(data:urlData!, encoding:NSUTF8StringEncoding)
+                    
+                    NSLog("Response ==> %@", self.outputData!);
+                    
+                    if (statusCode >= 200 && statusCode < 300){
+                        self.outputData  = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
+                        NSLog("Response ==> %@", self.outputData!);
+                        var error: NSError?
+                        self.outputJson = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as? NSDictionary
+                        
+                        
+                        if let tmpInnerResult = self.outputJson!.valueForKey("results") as? [NSDictionary]{
+                            self.innerResult = tmpInnerResult
+                        }
+                        
+                        if let tmpNextUrl = self.outputJson!.valueForKey("next") as? String {
+                            self.nextUrl = NSURL(string: tmpNextUrl)
+                        }
+                        
+                        dispatch_async(dispatch_get_main_queue(), {
+                        })
+                        
+                    }else {
+                        var alertView:UIAlertView = UIAlertView()
+                        alertView.title = "Connection Alert"
+                        alertView.message = "Connection Failed"
+                        alertView.delegate = self
+                        alertView.addButtonWithTitle("OK")
+                        alertView.show()
+                    }
+                    
+                }
+                
+            }
+            else {}
+        })
+    }
+
+    
     func performWithOutputData(){
         // Override like following codes.
         // let success = outputJson.valueForKey("key") as? String
@@ -144,6 +202,12 @@ public class HTTPRestfulUtilizer{
 //        prefs.setObject(username, forKey: "USERNAME")
 //        prefs.setInteger(1, forKey: "ISLOGGEDIN")
 //        prefs.synchronize()
+//        
+//        dispatch_async(dispatch_get_main_queue(), {
+//        
+//            target.image = image
+//        })
+
         
     }
     
