@@ -109,7 +109,7 @@ public class CalendarProvider{
         // Create Event
         var event = EKEvent(eventStore: eventStore)
         
-        event.allDay = schedule.allday
+        event.allDay = true
         event.calendar = checkCalendar()
         event.title = schedule.title
         

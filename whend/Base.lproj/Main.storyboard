@@ -124,19 +124,13 @@
                                     <navigationItem title="Title" id="Nvk-Dq-aRr"/>
                                 </items>
                             </navigationBar>
-                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="P72-jI-51L">
-                                <rect key="frame" x="0.0" y="430" width="600" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="463736393.41981202">
-                                    <!--2015-09-12 07:39:53 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="dateValueChanged:" destination="Bc3-Rk-0Ui" eventType="valueChanged" id="Hig-By-USn"/>
-                                </connections>
-                            </datePicker>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Ii-nZ-3k6">
                                 <rect key="frame" x="99" y="152" width="485" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="startTimeFieldEditing:" destination="Bc3-Rk-0Ui" eventType="editingDidEnd" id="pm3-uN-lnq"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LUI-2S-wQ5">
                                 <rect key="frame" x="92" y="195" width="492" height="35"/>
@@ -165,7 +159,6 @@
                             <constraint firstItem="cHS-po-YjK" firstAttribute="leading" secondItem="399-s6-j5f" secondAttribute="leadingMargin" id="WPP-Tx-N1K"/>
                             <constraint firstItem="9Ii-nZ-3k6" firstAttribute="trailing" secondItem="399-s6-j5f" secondAttribute="trailingMargin" id="WXQ-WA-klM"/>
                             <constraint firstItem="54N-gc-7rU" firstAttribute="centerY" secondItem="LUI-2S-wQ5" secondAttribute="centerY" id="Wdc-hF-9bm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="P72-jI-51L" secondAttribute="trailing" constant="-16" id="YbY-Fj-zDE"/>
                             <constraint firstItem="F1i-YV-3jN" firstAttribute="top" secondItem="gam-fG-uqa" secondAttribute="bottom" constant="47" id="aqu-U5-MdV"/>
                             <constraint firstItem="LUI-2S-wQ5" firstAttribute="height" secondItem="Rwu-0r-ij0" secondAttribute="height" id="bTm-UI-2yf"/>
                             <constraint firstItem="5ex-sq-zKY" firstAttribute="centerY" secondItem="QYi-nk-JHJ" secondAttribute="centerY" id="cdr-pA-uIt"/>
@@ -181,12 +174,10 @@
                             <constraint firstItem="Rwu-0r-ij0" firstAttribute="trailing" secondItem="399-s6-j5f" secondAttribute="trailingMargin" id="r9G-cG-CjJ"/>
                             <constraint firstItem="7xq-2g-6Nv" firstAttribute="top" secondItem="LUI-2S-wQ5" secondAttribute="bottom" constant="8" symbolic="YES" id="sGk-jp-bw1"/>
                             <constraint firstItem="QYi-nk-JHJ" firstAttribute="leading" secondItem="5ex-sq-zKY" secondAttribute="trailing" constant="8" symbolic="YES" id="tIk-Hc-dtI"/>
-                            <constraint firstItem="P72-jI-51L" firstAttribute="leading" secondItem="399-s6-j5f" secondAttribute="leadingMargin" constant="-16" id="taY-Mg-ZL6"/>
                             <constraint firstItem="LUI-2S-wQ5" firstAttribute="top" secondItem="9Ii-nZ-3k6" secondAttribute="bottom" constant="8" symbolic="YES" id="te1-s7-SCt"/>
                             <constraint firstItem="F1i-YV-3jN" firstAttribute="top" secondItem="gam-fG-uqa" secondAttribute="bottom" constant="47" id="v4M-15-cky"/>
                             <constraint firstItem="9Ii-nZ-3k6" firstAttribute="top" secondItem="QYi-nk-JHJ" secondAttribute="bottom" constant="8" symbolic="YES" id="yFL-Jn-cgV"/>
                             <constraint firstItem="7xq-2g-6Nv" firstAttribute="height" secondItem="Rwu-0r-ij0" secondAttribute="height" id="zRA-SY-5QF"/>
-                            <constraint firstItem="z1A-M9-f1l" firstAttribute="top" secondItem="P72-jI-51L" secondAttribute="bottom" constant="8" symbolic="YES" id="zZr-KF-swp"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -196,15 +187,13 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="DatePicker" destination="P72-jI-51L" id="RFQ-6A-LI9"/>
-                        <outlet property="StartTimeField" destination="9Ii-nZ-3k6" id="X5H-AZ-ubE"/>
-                        <outlet property="datePicker" destination="P72-jI-51L" id="P0L-fv-pty"/>
+                        <outlet property="endTimeField" destination="LUI-2S-wQ5" id="G7D-gX-iap"/>
                         <outlet property="startTimeField" destination="9Ii-nZ-3k6" id="2pP-DP-OhW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cq2-Xv-LCC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4222" y="972"/>
+            <point key="canvasLocation" x="4208" y="972"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="OBy-Oe-tlK">
@@ -384,7 +373,7 @@
                                     <action selector="logoutButton:" destination="8h5-XO-xZO" eventType="touchUpInside" id="7ve-cT-UXO"/>
                                 </connections>
                             </button>
-                            <view alpha="0.0" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xsy-5i-QXa">
+                            <view alpha="0.0" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xsy-5i-QXa">
                                 <rect key="frame" x="138" y="64" width="324" height="136"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcQ-Uc-fQX">
