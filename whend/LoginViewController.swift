@@ -53,7 +53,7 @@ class LoginViewController: UIViewController {
             var url:NSURL = NSURL(string: "http://119.81.176.245/rest-auth/login/")!
             
             var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes: HTTPRestfulUtilizer.RestType.POST(url: url,inputDict: params))!
-            restfulUtil.requestRest()
+            restfulUtil.requestRestSync()
             let outputJson = restfulUtil.outputJson!
             
             let token = outputJson.valueForKey("key") as? String
@@ -67,6 +67,10 @@ class LoginViewController: UIViewController {
                 prefs.setInteger(1, forKey: "ISLOGGEDIN")
                 prefs.setObject(token, forKey:"TOKEN")
                 prefs.synchronize()
+                
+                //create calendar
+                var cal = CalendarProvider()
+                cal.createCalendar()
                 
                // self.dismissViewControllerAnimated(true, completion: nil)
                 self.performSegueWithIdentifier("goto_main", sender: self)

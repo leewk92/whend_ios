@@ -19,8 +19,8 @@ public class Schedule{
     
     var starttime: String?
     var endtime: String?
-    var starttime_ms: Int?
-    var endtime_ms: Int?
+    var starttime_ms: Double?
+    var endtime_ms: Double?
     var date_start: String?
     var date_end: String?
     var time_start: String?
@@ -55,8 +55,8 @@ public class Schedule{
         let user_id = data?.valueForKeyPath(ScheduleKey.User_Id) as? Int
         let starttime = data?.valueForKeyPath(ScheduleKey.StartTime) as? String
         let endtime = data?.valueForKeyPath(ScheduleKey.EndTime) as? String
-        let starttime_ms = data?.valueForKeyPath(ScheduleKey.StartTime_ms) as? Int
-        let endtime_ms = data?.valueForKeyPath(ScheduleKey.EndTime_ms) as? Int
+        let starttime_ms = DateTimeFormatter().stringToDate(starttime!)
+        let endtime_ms = DateTimeFormatter().stringToDate(endtime!)
         let date_start = data?.valueForKeyPath(ScheduleKey.Date_Start) as? String
         let date_end = data?.valueForKeyPath(ScheduleKey.Date_End) as? String
         let time_start = data?.valueForKeyPath(ScheduleKey.Time_Start) as? String
@@ -141,8 +141,8 @@ public class Schedule{
         dictionary[ScheduleKey.Title] = self.title
         dictionary[ScheduleKey.StartTime] = self.starttime
         dictionary[ScheduleKey.EndTime] = self.endtime
-        dictionary[ScheduleKey.StartTime_ms] = self.starttime_ms?.description
-        dictionary[ScheduleKey.EndTime_ms] = self.endtime_ms?.description
+//        dictionary[ScheduleKey.StartTime_ms] = self.starttime_ms?.description
+//        dictionary[ScheduleKey.EndTime_ms] = self.endtime_ms?.description
         dictionary[ScheduleKey.Date_Start] = self.date_start
         dictionary[ScheduleKey.Date_End] = self.date_end
         dictionary[ScheduleKey.Time_Start] = self.time_start
@@ -173,8 +173,8 @@ public class Schedule{
         static let User_Id = "user_id"
         static let StartTime = "start_time"
         static let EndTime = "end_time"
-        static let StartTime_ms = "starttime_ms"
-        static let EndTime_ms = "endtime_ms"
+//        static let StartTime_ms = "starttime_ms"
+//        static let EndTime_ms = "endtime_ms"
         static let Date_Start = "date_start"
         static let Date_End = "date_end"
         static let Time_Start = "time_start"
@@ -201,6 +201,17 @@ public class Schedule{
         else {
             self.isLike = true
             like_count = like_count + 1
+        }
+    }
+    
+    func followButtonClicked() {
+        if self.isFollow{
+            self.isFollow = false
+            follow_count = follow_count - 1
+        }
+        else {
+            self.isFollow = true
+            follow_count = follow_count + 1
         }
     }
 

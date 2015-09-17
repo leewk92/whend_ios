@@ -25,6 +25,9 @@
 		FAE7F1B41B9EA1AA00F6818D /* HashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE7F1B31B9EA1AA00F6818D /* HashTag.swift */; };
 		FAE7F1B61B9EA1DB00F6818D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE7F1B51B9EA1DB00F6818D /* Comment.swift */; };
 		FAE7F1B81B9EA20A00F6818D /* FacebookFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE7F1B71B9EA20A00F6818D /* FacebookFriend.swift */; };
+		FAEC38771BA98BBD00663B7B /* CalendarProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC38761BA98BBD00663B7B /* CalendarProvider.swift */; };
+		FAEC387B1BA99A2100663B7B /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC387A1BA99A2100663B7B /* UIViewExtensions.swift */; };
+		FAEC387D1BA9CA7B00663B7B /* DateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC387C1BA9CA7B00663B7B /* DateTimeFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		FAE7F1B31B9EA1AA00F6818D /* HashTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashTag.swift; sourceTree = "<group>"; };
 		FAE7F1B51B9EA1DB00F6818D /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		FAE7F1B71B9EA20A00F6818D /* FacebookFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookFriend.swift; sourceTree = "<group>"; };
+		FAEC38761BA98BBD00663B7B /* CalendarProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarProvider.swift; sourceTree = "<group>"; };
+		FAEC387A1BA99A2100663B7B /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		FAEC387C1BA9CA7B00663B7B /* DateTimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,7 @@
 				047C3C1F1B8C475B006083A3 /* SignUpViewController.swift */,
 				0446D1EA1BA414B200FBC76E /* UploadViewController.swift */,
 				044F64CE1B885CDA00A318E6 /* LoginViewController.swift */,
+				FAEC387A1BA99A2100663B7B /* UIViewExtensions.swift */,
 				044F64A81B8837C500A318E6 /* Images.xcassets */,
 				044F64AA1B8837C500A318E6 /* LaunchScreen.xib */,
 				044F649F1B8837C500A318E6 /* Supporting Files */,
@@ -148,6 +155,8 @@
 			children = (
 				FAE13E7C1BA148190075FA9A /* HTTPRestfulUtilizer.swift */,
 				FAE13E7E1BA1485C0075FA9A /* AppPref.swift */,
+				FAEC38761BA98BBD00663B7B /* CalendarProvider.swift */,
+				FAEC387C1BA9CA7B00663B7B /* DateTimeFormatter.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -265,8 +274,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAEC387D1BA9CA7B00663B7B /* DateTimeFormatter.swift in Sources */,
 				FAE7F1B01B9EA19500F6818D /* User.swift in Sources */,
 				0446D1EB1BA414B200FBC76E /* UploadViewController.swift in Sources */,
+				FAEC38771BA98BBD00663B7B /* CalendarProvider.swift in Sources */,
 				FAE13E7D1BA148190075FA9A /* HTTPRestfulUtilizer.swift in Sources */,
 				044F64CF1B885CDA00A318E6 /* LoginViewController.swift in Sources */,
 				044F64A41B8837C500A318E6 /* ViewController.swift in Sources */,
@@ -274,6 +285,7 @@
 				04E4F1C31B9D9A9000255D2E /* WallTableViewController.swift in Sources */,
 				047C3C201B8C475B006083A3 /* SignUpViewController.swift in Sources */,
 				044F64A21B8837C500A318E6 /* AppDelegate.swift in Sources */,
+				FAEC387B1BA99A2100663B7B /* UIViewExtensions.swift in Sources */,
 				FAE13E7F1BA1485C0075FA9A /* AppPref.swift in Sources */,
 				04E4F1C51B9D9AAA00255D2E /* WallTableViewCell.swift in Sources */,
 				FAE7F1B61B9EA1DB00F6818D /* Comment.swift in Sources */,
