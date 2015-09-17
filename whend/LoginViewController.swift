@@ -68,6 +68,10 @@ class LoginViewController: UIViewController {
                 prefs.setObject(token, forKey:"TOKEN")
                 prefs.synchronize()
                 
+                //create calendar
+                var cal = CalendarProvider()
+                cal.createCalendar()
+                
                // self.dismissViewControllerAnimated(true, completion: nil)
                 self.performSegueWithIdentifier("goto_main", sender: self)
             } else {

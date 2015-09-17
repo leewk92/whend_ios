@@ -101,6 +101,31 @@ class WallTableViewCell: UITableViewCell {
 //        updateUI()
     }
     
+    @IBAction func clickFollowButton(sender: UIButton) {
+        
+        schedule?.followButtonClicked()
+        updateUI()
+        
+        var url_string = "http://119.81.176.245/schedules/\(schedule!.id)/follow/"
+        println(url_string)
+        var url:NSURL = NSURL(string: url_string)!
+        var inputDict = ["username": "useless", "password": "data"] as Dictionary<String, String>
+        var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes: HTTPRestfulUtilizer.RestType.PUT(url: url, inputDict: inputDict))!
+        restfulUtil.requestRestAsync()
+        
+        //
+        //        url_string = "http://119.81.176.245/schedules/\(schedule!.id)/"
+        //        url = NSURL(string: url_string)!
+        //        restfulUtil = HTTPRestfulUtilizer(restTypes: HTTPRestfulUtilizer.RestType.GET(url: url))!
+        //        restfulUtil.requestRest()
+        //        var new_schedule = Schedule(data: restfulUtil.outputJson)
+        //        self.schedule = new_schedule
+        //        updateUI()
+        
+        var cp = CalendarProvider()
+        cp.insertEvent(schedule!)
+    }
+    
     
     func getPhoto( inout photo:UIImageView!, url:NSURL, _imageDestination: HTTPRestfulUtilizer.imageDestination){
         var url:NSURL = url

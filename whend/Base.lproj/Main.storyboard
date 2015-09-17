@@ -307,7 +307,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whenD_ActionBar" translatesAutoresizingMaskIntoConstraints="NO" id="Duo-Mv-dhl">
                                 <rect key="frame" x="221" y="243" width="158" height="57"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7y-0x-uMQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7y-0x-uMQ">
                                 <rect key="frame" x="16" y="308" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -324,6 +324,27 @@
                                     <action selector="logoutButton:" destination="8h5-XO-xZO" eventType="touchUpInside" id="7ve-cT-UXO"/>
                                 </connections>
                             </button>
+                            <view alpha="0.0" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xsy-5i-QXa">
+                                <rect key="frame" x="138" y="64" width="324" height="136"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcQ-Uc-fQX">
+                                        <rect key="frame" x="107" y="62" width="111" height="59"/>
+                                        <state key="normal" title="Go Settings">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goToSettingsButtonTapped:" destination="8h5-XO-xZO" eventType="touchUpInside" id="X0g-za-j9L"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="캘린더 사용 권한을 요청합니다." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hE-GE-RTr">
+                                        <rect key="frame" x="57" y="33" width="211" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.66666666666666663" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -331,11 +352,13 @@
                             <constraint firstItem="X1B-Ea-9JU" firstAttribute="trailing" secondItem="VKe-kI-WOb" secondAttribute="trailingMargin" id="8lZ-6h-aaM"/>
                             <constraint firstItem="S7y-0x-uMQ" firstAttribute="leading" secondItem="VKe-kI-WOb" secondAttribute="leadingMargin" id="DAJ-uY-9pj"/>
                             <constraint firstAttribute="centerX" secondItem="Duo-Mv-dhl" secondAttribute="centerX" id="JbH-IH-Z8X"/>
+                            <constraint firstAttribute="width" secondItem="xsy-5i-QXa" secondAttribute="width" id="Nfw-wP-nJw"/>
                             <constraint firstAttribute="centerY" secondItem="Duo-Mv-dhl" secondAttribute="bottom" id="Py3-zY-jjj"/>
                             <constraint firstItem="S7y-0x-uMQ" firstAttribute="top" secondItem="Duo-Mv-dhl" secondAttribute="bottom" constant="8" symbolic="YES" id="UqW-gw-WUj"/>
                             <constraint firstItem="Duo-Mv-dhl" firstAttribute="leading" secondItem="S7y-0x-uMQ" secondAttribute="trailing" constant="-363" id="Xvd-WC-LkZ"/>
                             <constraint firstItem="X1B-Ea-9JU" firstAttribute="top" secondItem="S7y-0x-uMQ" secondAttribute="bottom" constant="8" id="bSK-qq-cgj"/>
                             <constraint firstItem="X1B-Ea-9JU" firstAttribute="leading" secondItem="VKe-kI-WOb" secondAttribute="leadingMargin" id="fPZ-pe-AId"/>
+                            <constraint firstAttribute="height" secondItem="xsy-5i-QXa" secondAttribute="height" id="o04-Pe-9n8"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -344,6 +367,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="needPermissionView" destination="xsy-5i-QXa" id="a4h-9r-Mqe"/>
                         <outlet property="usernameLabel" destination="S7y-0x-uMQ" id="ktF-wX-IR8"/>
                         <segue destination="zDA-EY-7m9" kind="show" identifier="goto_login" id="eyO-fA-SNv"/>
                     </connections>
@@ -624,6 +648,9 @@
                                             <state key="normal" image="download">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="clickFollowButton:" destination="yrn-Vd-sko" eventType="touchUpInside" id="7f1-qW-Ign"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJl-uB-Lxd">
                                             <rect key="frame" x="41" y="15" width="31" height="15"/>
