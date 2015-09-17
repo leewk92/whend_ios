@@ -373,7 +373,7 @@
                                     <action selector="logoutButton:" destination="8h5-XO-xZO" eventType="touchUpInside" id="7ve-cT-UXO"/>
                                 </connections>
                             </button>
-                            <view alpha="0.0" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xsy-5i-QXa">
+                            <view alpha="0.0" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xsy-5i-QXa">
                                 <rect key="frame" x="138" y="64" width="324" height="136"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcQ-Uc-fQX">
