@@ -35,7 +35,7 @@ public class CalendarProvider{
         // Use Event Store to create a new calendar instance
         // Configure its title
         let newCalendar = EKCalendar(forEntityType: EKEntityTypeEvent, eventStore: eventStore)
-        newCalendar.title = "WhenD"
+        newCalendar.title = "whenD"
        
         // Access list of available sources from the Event Store
         let sourcesInEventStore = eventStore.sources() as! [EKSource]
@@ -70,9 +70,8 @@ public class CalendarProvider{
         
         // 3
 //        let startDate = NSDate()
-        
         let startDate = NSDate(timeIntervalSince1970: schedule.starttime_ms!)
-        
+        print(startDate)
         let endDate:NSDate
         
         if let endtime_ms = schedule.endtime_ms{
