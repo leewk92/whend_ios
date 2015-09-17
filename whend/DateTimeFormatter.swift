@@ -48,13 +48,13 @@ class DateTimeFormatter{
     
     func getWeekdayInString(weekday: Int)->String{
         switch weekday{
-        case 1 : return "Mon"
-        case 2 : return "Tue"
-        case 3 : return "Wed"
-        case 4 : return "Thu"
-        case 5 : return "Fri"
-        case 6 : return "Sat"
-        case 7 : return "Sun"
+        case 0 : return "Mon"
+        case 1 : return "Tue"
+        case 2 : return "Wed"
+        case 3 : return "Thu"
+        case 4 : return "Fri"
+        case 5 : return "Sat"
+        case 6 : return "Sun"
         default: return ""
         }
     }
