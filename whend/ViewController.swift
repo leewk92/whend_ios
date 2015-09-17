@@ -30,12 +30,16 @@ class ViewController: UIViewController {
         
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
-        if (isLoggedIn != 1) {
-            self.performSegueWithIdentifier("goto_login", sender: self)
+        let isToken:String? = prefs.stringForKey("TOKEN") as String?
+        if let tmpToken = isToken{
+            self.usernameLabel.text = prefs.valueForKey("USERNAME") as! NSString as String
+            self.performSegueWithIdentifier("goto_main", sender: self)
+            
         } else {
             
             //We need to see about NSString
-            self.usernameLabel.text = prefs.valueForKey("USERNAME") as! NSString as String
+            
+            self.performSegueWithIdentifier("goto_login", sender: self)
         }
     }
 

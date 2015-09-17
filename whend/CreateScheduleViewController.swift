@@ -25,7 +25,13 @@ class CreateScheduleViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+/*
+    @IBAction func cancel(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(false, completion: nil)
+        
+        println("cancel")
+    }
+*/
     @IBAction func startTimeFieldEditing(sender: UITextField) {
         var datePickerView:UIDatePicker = UIDatePicker()
         datePickerView.datePickerMode = UIDatePickerMode.DateAndTime
@@ -42,7 +48,7 @@ class CreateScheduleViewController: UIViewController {
         
         sender.inputView = datePickerView
         
-        datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerView.addTarget(self, action: Selector("datePickerValueChanged2:"), forControlEvents: UIControlEvents.ValueChanged)
     }
 
     
@@ -54,6 +60,15 @@ class CreateScheduleViewController: UIViewController {
         dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
         
         startTimeField.text = dateFormatter.stringFromDate(sender.date)
+    }
+    func datePickerValueChanged2(sender: UIDatePicker) {
+        var dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        
+        dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
+        
+        endTimeField.text = dateFormatter.stringFromDate(sender.date)
     }
     /*
     // MARK: - Navigation
