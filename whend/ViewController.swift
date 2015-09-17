@@ -97,9 +97,6 @@ class ViewController: UIViewController {
     
     func loadCalendars() {
         self.calendars = eventStore.calendarsForEntityType(EKEntityTypeEvent) as? [EKCalendar]
-        
-       
-        
     }
     
    

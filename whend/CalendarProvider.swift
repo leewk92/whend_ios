@@ -104,32 +104,28 @@ public class CalendarProvider{
     
     
     func insertEvent(schedule : Schedule) {
-        
-        // 3
-//        let startDate = NSDate()
-        
-        let startDate = NSDate(timeIntervalSince1970: schedule.starttime_ms!)
-        
-        let endDate:NSDate
-        
-        if let endtime_ms = schedule.endtime_ms{
-            endDate = NSDate(timeIntervalSince1970: schedule.endtime_ms!)
-        }
-        else{
-            endDate = startDate.dateByAddingTimeInterval(60 * 60)       // 1 hour
-        }
-        
-        // 4
+
+                
         // Create Event
         var event = EKEvent(eventStore: eventStore)
+        
+        event.allDay = schedule.allday
         event.calendar = checkCalendar()
         event.title = schedule.title
-        event.startDate = startDate
-        event.endDate = endDate
+        
+        //event.allDay = schedule.allday
+        
+        event.startDate = schedule.startDate
+        event.endDate = schedule.endDate
         event.location = schedule.location
         event.notes = schedule.memo
-        event.allDay = schedule.allday
-        event.timeZone = NSTimeZone.systemTimeZone()
+        
+        event.timeZone = NSTimeZone.localTimeZone()
+        
+        println(schedule.startDate)
+        println(schedule.endDate)
+        println(event.allDay)
+        println(true)
         
         // 5
         // Save Event in Calendar
@@ -141,7 +137,50 @@ public class CalendarProvider{
                 println("An error occured \(theError)")
             }
         }
+    }
+    
+    func removeEvent(schedule: Schedule) -> Bool{
+        var calendar = checkCalendar()
+        if calendar.allowsContentModifications == false{
+            println("The selected calendar does not allow modifications.")
+            return false
+        }
+        var result = false
         
+        let predicate = eventStore.predicateForEventsWithStartDate(schedule.startDate, endDate: schedule.endDate, calendars: [calendar] )
+        let events_nilable = eventStore.eventsMatchingPredicate(predicate) as? [EKEvent]
+        if let events = events_nilable{
+            if events.count > 0{
+                for event in events{
+                    var error:NSError?
+                    if event.title == schedule.title{
+                        if eventStore.removeEvent(event, span: EKSpanThisEvent, commit: false, error: &error) == false{
+                            if let theError = error{
+                                println("Failed to remove \(event) with error = \(theError)")
+                            }
+                        }
+                        
+                    }
+                    
+                }
+                var error2:NSError?
+                if eventStore.commit(&error2){
+                    println("Successfully committed")
+                    result = true
+                } else if let theError = error2{
+                    println("Failed to commit the event store with error = \(theError)")
+                }
+                
+            } else {
+                println("No events matched your input.")
+            }
+        }
+        return result
+    }
+    
+    func loadCalendars() -> [EKCalendar]{
+        var calendars = eventStore.calendarsForEntityType(EKEntityTypeEvent) as? [EKCalendar]
+        return calendars!
     }
     
     

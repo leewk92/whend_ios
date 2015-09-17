@@ -25,6 +25,8 @@ public class Schedule{
     var date_end: String?
     var time_start: String?
     var time_end: String?
+    var startDate: NSDate?
+    var endDate: NSDate?
     
     var memo: String?
     var location: String?
@@ -61,6 +63,8 @@ public class Schedule{
         let date_end = data?.valueForKeyPath(ScheduleKey.Date_End) as? String
         let time_start = data?.valueForKeyPath(ScheduleKey.Time_Start) as? String
         let time_end = data?.valueForKeyPath(ScheduleKey.Time_End) as? String
+        let startDate = NSDate(timeIntervalSince1970: starttime_ms)
+        let endDate = NSDate(timeIntervalSince1970: endtime_ms)
         let memo = data?.valueForKeyPath(ScheduleKey.Memo) as? String
         let location = data?.valueForKeyPath(ScheduleKey.Location) as? String
         var photo_dir:NSURL? = nil
@@ -68,6 +72,13 @@ public class Schedule{
             photo_dir = NSURL(string: s_photo_dir)
         }
         let allday = data?.valueForKeyPath(ScheduleKey.AllDay) as? Bool
+//        let allday_string = data?.valueForKeyPath(ScheduleKey.AllDay) as? String
+//        let allday:Bool?
+//        if allday_string == "false"{
+//            allday = false
+//        }else {
+//            allday = true
+//        }
         let timezone = data?.valueForKeyPath(ScheduleKey.TimeZone) as? String
         let color = data?.valueForKeyPath(ScheduleKey.Color) as? String
         let like_count = data?.valueForKeyPath(ScheduleKey.Like_Count) as? Int
@@ -91,6 +102,8 @@ public class Schedule{
             self.date_end = date_end
             self.time_start = time_start
             self.time_end = time_end
+            self.startDate = startDate
+            self.endDate = endDate
             self.memo = memo
             self.location = location
             self.photo_dir = photo_dir

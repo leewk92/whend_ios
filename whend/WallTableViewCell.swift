@@ -103,8 +103,7 @@ class WallTableViewCell: UITableViewCell {
     
     @IBAction func clickFollowButton(sender: UIButton) {
         
-        schedule?.followButtonClicked()
-        updateUI()
+        
         
         var url_string = "http://119.81.176.245/schedules/\(schedule!.id)/follow/"
         println(url_string)
@@ -123,7 +122,14 @@ class WallTableViewCell: UITableViewCell {
         //        updateUI()
         
         var cp = CalendarProvider()
-        cp.insertEvent(schedule!)
+        if schedule!.isFollow {
+            cp.removeEvent(schedule!)
+        }
+        else{
+            cp.insertEvent(schedule!)
+        }
+        schedule?.followButtonClicked()
+        updateUI()
     }
     
     
