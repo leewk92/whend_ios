@@ -111,7 +111,7 @@ public class CalendarProvider{
        
         event.timeZone = NSTimeZone.localTimeZone()
         
-        event.allDay = schedule.allday
+        event.allDay = true
         event.calendar = checkCalendar()
         event.title = schedule.title
         

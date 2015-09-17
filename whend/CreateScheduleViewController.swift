@@ -12,14 +12,13 @@ class CreateScheduleViewController: UIViewController {
 
     
     @IBOutlet weak var startTimeField: UITextField!
-    
-    @IBOutlet weak var datePicker: UIDatePicker!
-    
+    @IBOutlet weak var endTimeField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        startTimeField.inputView = datePicker
+        //startTimeField.inputView = datePicker
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,9 +26,34 @@ class CreateScheduleViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func startTimeFieldEditing(sender: UITextField) {
+        var datePickerView:UIDatePicker = UIDatePicker()
+        datePickerView.datePickerMode = UIDatePickerMode.DateAndTime
+        
+        sender.inputView = datePickerView
+        
+        datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        
+    }
+    @IBAction func endTimeFieldEditing(sender: UITextField) {
+        var datePickerView:UIDatePicker = UIDatePicker()
+        
+        datePickerView.datePickerMode = UIDatePickerMode.DateAndTime
+        
+        sender.inputView = datePickerView
+        
+        datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+    }
 
-    @IBAction func dateValueChanged(sender: UIDatePicker) {
-        startTimeField.text = sender.date.description
+    
+    func datePickerValueChanged(sender: UIDatePicker) {
+        var dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        
+        dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
+        
+        startTimeField.text = dateFormatter.stringFromDate(sender.date)
     }
     /*
     // MARK: - Navigation
