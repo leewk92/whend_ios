@@ -63,8 +63,7 @@ public class Schedule{
         let date_end = data?.valueForKeyPath(ScheduleKey.Date_End) as? String
         let time_start = data?.valueForKeyPath(ScheduleKey.Time_Start) as? String
         let time_end = data?.valueForKeyPath(ScheduleKey.Time_End) as? String
-        let startDate = NSDate(timeIntervalSince1970: starttime_ms)
-        let endDate = NSDate(timeIntervalSince1970: endtime_ms)
+        
         let memo = data?.valueForKeyPath(ScheduleKey.Memo) as? String
         let location = data?.valueForKeyPath(ScheduleKey.Location) as? String
         var photo_dir:NSURL? = nil
@@ -72,6 +71,16 @@ public class Schedule{
             photo_dir = NSURL(string: s_photo_dir)
         }
         let allday = data?.valueForKeyPath(ScheduleKey.AllDay) as? Bool
+        let startDate:NSDate?
+        let endDate:NSDate?
+        // if allday, endtime -1 day
+        if allday!{
+            startDate = NSDate(timeIntervalSince1970: starttime_ms)
+            endDate = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitDay, value: -1, toDate: NSDate(timeIntervalSince1970: endtime_ms), options: NSCalendarOptions.MatchNextTime)
+        }else {
+            startDate = NSDate(timeIntervalSince1970: starttime_ms)
+            endDate = NSDate(timeIntervalSince1970: endtime_ms)
+        }
 //        let allday_string = data?.valueForKeyPath(ScheduleKey.AllDay) as? String
 //        let allday:Bool?
 //        if allday_string == "false"{

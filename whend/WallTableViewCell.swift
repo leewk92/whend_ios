@@ -52,8 +52,8 @@ class WallTableViewCell: UITableViewCell {
         {
             scheduleUserNameLabel?.text = schedule.username
             scheduleTitleLabel?.text = schedule.title
-            scheduleDateLabel?.text = schedule.starttime
-            scheduleTimeLabel?.text = schedule.endtime
+            scheduleDateLabel?.text = DateTimeFormatter().DateToStringDate(schedule.startDate!)
+            scheduleTimeLabel?.text = DateTimeFormatter().DateToStringTime(schedule.startDate!)
             scheduleLocationLabel?.text = schedule.location
             scheduleLikeLabel?.text = String(schedule.like_count)
             scheduleFollowLabel?.text = String(schedule.follow_count)
@@ -61,10 +61,16 @@ class WallTableViewCell: UITableViewCell {
             if let tmpPhoto_dir = schedule.photo_dir {
                 
                 getPhoto( &schedulePhoto, url: tmpPhoto_dir , _imageDestination: HTTPRestfulUtilizer.imageDestination.wall)
+            }else{
+                schedulePhoto.image = UIImage(named: "memo_photo_default1")
+                println("defualtScheduleIamge")
             }
             if let tmpUserPhoto_dir = schedule.user_photo {
                 
                 getPhoto( &userPhoto, url: tmpUserPhoto_dir, _imageDestination: HTTPRestfulUtilizer.imageDestination.profile)
+            }else{
+                userPhoto.image = UIImage(named:"UserImage_Default")
+                println("deaultuserImage")
             }
             
             // println(schedule.isLike)

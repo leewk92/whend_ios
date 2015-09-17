@@ -203,7 +203,7 @@ class WallTableViewController: UITableViewController {
     // for endless scrolling
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        if itemCount - indexPath.row == 2{
+        if itemCount - indexPath.row == 3{
             var url:NSURL = nextUrl!
             var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes:HTTPRestfulUtilizer.RestType.GET(url: url))!
             restfulUtil.requestRestSync()
@@ -211,6 +211,8 @@ class WallTableViewController: UITableViewController {
                 for item in items{
                     let schedule:Schedule = Schedule(data: item)!
                     schedules.append(schedule)
+//                    tableView.reloadData()
+//                    self.itemCount = self.itemCount + 1
                 }
             }
             self.itemCount += (restfulUtil.innerResult?.count)!
