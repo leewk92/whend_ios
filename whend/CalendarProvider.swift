@@ -108,6 +108,8 @@ public class CalendarProvider{
                 
         // Create Event
         var event = EKEvent(eventStore: eventStore)
+       
+        event.timeZone = NSTimeZone.localTimeZone()
         
         event.allDay = schedule.allday
         event.calendar = checkCalendar()
@@ -120,7 +122,6 @@ public class CalendarProvider{
         event.location = schedule.location
         event.notes = schedule.memo
         
-        event.timeZone = NSTimeZone.localTimeZone()
         
         println(schedule.startDate)
         println(schedule.endDate)
