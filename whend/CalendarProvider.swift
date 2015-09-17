@@ -65,7 +65,8 @@ public class CalendarProvider{
     
     func checkCalendar() -> EKCalendar{
         var retCal: EKCalendar?
-        
+        var calendarSource: EKSource?
+        var count = 0
         let calendars = eventStore.calendarsForEntityType(EKEntityTypeEvent) as! [EKCalendar] // Grab every calendar the user has
         var exists: Bool = false
         for calendar in calendars { // Search all these calendars
@@ -73,14 +74,27 @@ public class CalendarProvider{
                 exists = true
                 retCal = calendar
             }
+            
+            if calendar.source.title == "iCloud"{
+                calendarSource = calendar.source
+                count = count + 1
+            }
+            
+        }
+        if count == 0{
+            self.createCalendar()
+            calendarSource = eventStore.defaultCalendarForNewEvents.source
         }
         
         var err : NSError?
         if !exists {
+            
+            let eventStore = EKEventStore()
             let newCalendar = EKCalendar(forEntityType:EKEntityTypeEvent, eventStore:eventStore)
             newCalendar.title="whenD"
-            newCalendar.source = eventStore.defaultCalendarForNewEvents.source
-            eventStore.saveCalendar(newCalendar, commit:true, error:&err)
+            
+            newCalendar.source = calendarSource!;           eventStore.saveCalendar(newCalendar, commit:true, error:&err)
+            
             retCal = newCalendar
         }
         
