@@ -30,13 +30,12 @@ public class CalendarProvider{
     }
     
     func createCalendar(){
-        
-        
+    
         // Use Event Store to create a new calendar instance
         // Configure its title
         let newCalendar = EKCalendar(forEntityType: EKEntityTypeEvent, eventStore: eventStore)
-        newCalendar.title = "WhenD"
-       
+        newCalendar.title = "whenD"
+        
         // Access list of available sources from the Event Store
         let sourcesInEventStore = eventStore.sources() as! [EKSource]
         
@@ -53,16 +52,40 @@ public class CalendarProvider{
         
         // Handle situation if the calendar could not be saved
         if calendarWasSaved == false {
-//            let alert = UIAlertController(title: "Calendar could not save", message: error?.localizedDescription, preferredStyle: .Alert)
-//            let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-//            alert.addAction(OKAction)
-//            self.presentViewController(alert, animated: true, completion: nil)
+
             println("Error : calendar wasn't saved")
         } else {
             NSUserDefaults.standardUserDefaults().setObject(newCalendar.calendarIdentifier, forKey: "EventTrackerPrimaryCalendar")
             self.whendCalendar = newCalendar
             println("calendar is created")
         }
+        
+        
+    }
+    
+    func checkCalendar() -> EKCalendar{
+        var retCal: EKCalendar?
+        
+        let calendars = eventStore.calendarsForEntityType(EKEntityTypeEvent) as! [EKCalendar] // Grab every calendar the user has
+        var exists: Bool = false
+        for calendar in calendars { // Search all these calendars
+            if calendar.title == "whenD" {
+                exists = true
+                retCal = calendar
+            }
+        }
+        
+        var err : NSError?
+        if !exists {
+            let newCalendar = EKCalendar(forEntityType:EKEntityTypeEvent, eventStore:eventStore)
+            newCalendar.title="whenD"
+            newCalendar.source = eventStore.defaultCalendarForNewEvents.source
+            eventStore.saveCalendar(newCalendar, commit:true, error:&err)
+            retCal = newCalendar
+        }
+        
+        self.whendCalendar = retCal!
+        return retCal!
     }
     
     
@@ -85,7 +108,7 @@ public class CalendarProvider{
         // 4
         // Create Event
         var event = EKEvent(eventStore: eventStore)
-        event.calendar = whendCalendar
+        event.calendar = checkCalendar()
         event.title = schedule.title
         event.startDate = startDate
         event.endDate = endDate

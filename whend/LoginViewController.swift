@@ -70,7 +70,7 @@ class LoginViewController: UIViewController {
                 
                 //create calendar
                 var cal = CalendarProvider()
-                cal.createCalendar()
+                cal.checkCalendar()
                 
                // self.dismissViewControllerAnimated(true, completion: nil)
                 self.performSegueWithIdentifier("goto_main", sender: self)
