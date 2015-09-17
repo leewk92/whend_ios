@@ -18,6 +18,6 @@ class DateTimeFormatter{
         dateFormatter.timeZone = NSTimeZone(name: "UTC")
         let date_value = dateFormatter.dateFromString(date)
         
-        return date_value!.timeIntervalSince1970*1000 as Double
+        return date_value!.timeIntervalSince1970 as Double
     }
 }
