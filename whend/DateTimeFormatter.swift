@@ -8,7 +8,17 @@
 
 import Foundation
 
+extension Int {
+    func string(integerDigits:Int) -> String {
+        let formatter = NSNumberFormatter()
+        formatter.minimumIntegerDigits = integerDigits
+        formatter.maximumIntegerDigits = integerDigits
+        return formatter.stringFromNumber(self) ?? "\(self)"
+    }
+}
+
 class DateTimeFormatter{
+    
     
     func stringToDate(date: String) -> Double
     {
@@ -23,14 +33,30 @@ class DateTimeFormatter{
     
     func DateToStringDate(date: NSDate) -> String{
         let component = NSCalendar.currentCalendar().componentsInTimeZone(NSTimeZone.localTimeZone(), fromDate: date)
-        let stringDate = "\(component.month) / \(component.day)"
+        let stringDate = "\(getWeekdayInString(component.weekday)) \(component.month) / \(component.day)"
+        
         return stringDate
     }
     
     func DateToStringTime(date: NSDate) -> String{
         let component = NSCalendar.currentCalendar().componentsInTimeZone(NSTimeZone.localTimeZone(), fromDate: date)
-        let stringTime = "\(component.hour) / \(component.minute)"
+        
+        let stringTime = "\(component.hour.string(2)) : \(component.minute.string(2))"
+        
         return stringTime
+    }
+    
+    func getWeekdayInString(weekday: Int)->String{
+        switch weekday{
+        case 1 : return "Mon"
+        case 2 : return "Tue"
+        case 3 : return "Wed"
+        case 4 : return "Thu"
+        case 5 : return "Fri"
+        case 6 : return "Sat"
+        case 7 : return "Sun"
+        default: return ""
+        }
     }
     
 }
