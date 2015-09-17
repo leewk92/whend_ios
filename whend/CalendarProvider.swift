@@ -35,7 +35,7 @@ public class CalendarProvider{
         // Configure its title
         let newCalendar = EKCalendar(forEntityType: EKEntityTypeEvent, eventStore: eventStore)
         newCalendar.title = "whenD"
-        
+       
         // Access list of available sources from the Event Store
         let sourcesInEventStore = eventStore.sources() as! [EKSource]
         

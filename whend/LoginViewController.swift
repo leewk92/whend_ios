@@ -185,7 +185,7 @@ class LoginViewController: UIViewController {
 //                alertView.show()
 //            }
         }
-
+        //
         /*
         //declare parameter as a dictionary which contains string as key and value combination.
         var parameters = ["name": usernameText.text, "password": passwordText.text] as Dictionary<String, String>
