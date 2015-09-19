@@ -19,6 +19,8 @@
 		047C3C201B8C475B006083A3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C3C1F1B8C475B006083A3 /* SignUpViewController.swift */; };
 		04E4F1C31B9D9A9000255D2E /* WallTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E4F1C21B9D9A9000255D2E /* WallTableViewController.swift */; };
 		04E4F1C51B9D9AAA00255D2E /* WallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E4F1C41B9D9AAA00255D2E /* WallTableViewCell.swift */; };
+		04F059BB1BAD838F009459E5 /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F059BA1BAD838F009459E5 /* NotificationTableViewController.swift */; };
+		04F059BD1BAD84D2009459E5 /* NotificationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F059BC1BAD84D2009459E5 /* NotificationViewCell.swift */; };
 		FAE13E7D1BA148190075FA9A /* HTTPRestfulUtilizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE13E7C1BA148190075FA9A /* HTTPRestfulUtilizer.swift */; };
 		FAE13E7F1BA1485C0075FA9A /* AppPref.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE13E7E1BA1485C0075FA9A /* AppPref.swift */; };
 		FAE7F1B01B9EA19500F6818D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE7F1AF1B9EA19500F6818D /* User.swift */; };
@@ -58,6 +60,8 @@
 		047C3C1F1B8C475B006083A3 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		04E4F1C21B9D9A9000255D2E /* WallTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallTableViewController.swift; sourceTree = "<group>"; };
 		04E4F1C41B9D9AAA00255D2E /* WallTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallTableViewCell.swift; sourceTree = "<group>"; };
+		04F059BA1BAD838F009459E5 /* NotificationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
+		04F059BC1BAD84D2009459E5 /* NotificationViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewCell.swift; sourceTree = "<group>"; };
 		FAE13E7C1BA148190075FA9A /* HTTPRestfulUtilizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRestfulUtilizer.swift; sourceTree = "<group>"; };
 		FAE13E7E1BA1485C0075FA9A /* AppPref.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPref.swift; sourceTree = "<group>"; };
 		FAE7F1AF1B9EA19500F6818D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -115,7 +119,9 @@
 				044F64A31B8837C500A318E6 /* ViewController.swift */,
 				04E4F1C21B9D9A9000255D2E /* WallTableViewController.swift */,
 				04E4F1C41B9D9AAA00255D2E /* WallTableViewCell.swift */,
+				04F059BA1BAD838F009459E5 /* NotificationTableViewController.swift */,
 				044F64A51B8837C500A318E6 /* Main.storyboard */,
+				04F059BC1BAD84D2009459E5 /* NotificationViewCell.swift */,
 				045897821BAA82F2000655E4 /* CreateScheduleViewController.swift */,
 				047C3C1F1B8C475B006083A3 /* SignUpViewController.swift */,
 				0446D1EA1BA414B200FBC76E /* UploadViewController.swift */,
@@ -289,8 +295,10 @@
 				047C3C201B8C475B006083A3 /* SignUpViewController.swift in Sources */,
 				044F64A21B8837C500A318E6 /* AppDelegate.swift in Sources */,
 				FAEC387B1BA99A2100663B7B /* UIViewExtensions.swift in Sources */,
+				04F059BB1BAD838F009459E5 /* NotificationTableViewController.swift in Sources */,
 				FAE13E7F1BA1485C0075FA9A /* AppPref.swift in Sources */,
 				04E4F1C51B9D9AAA00255D2E /* WallTableViewCell.swift in Sources */,
+				04F059BD1BAD84D2009459E5 /* NotificationViewCell.swift in Sources */,
 				FAE7F1B61B9EA1DB00F6818D /* Comment.swift in Sources */,
 				045897831BAA82F2000655E4 /* CreateScheduleViewController.swift in Sources */,
 				FAE7F1B21B9EA1A200F6818D /* Schedule.swift in Sources */,
