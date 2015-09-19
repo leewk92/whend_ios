@@ -11,7 +11,7 @@ import UIKit
 
 public class HTTPRestfulUtilizer{
     
-    var inputDict:Dictionary<String,String>?
+    var inputDict:Dictionary<String,AnyObject>?
     var url:NSURL?
     var nextUrl:NSURL?
     var inputJson:NSData?
@@ -25,9 +25,9 @@ public class HTTPRestfulUtilizer{
     var innerResult: [NSDictionary]?
     
     enum RestType{
-        case POST(url:NSURL, inputDict:Dictionary<String,String>)
+        case POST(url:NSURL, inputDict:Dictionary<String,AnyObject>)
         case DELETE(url:NSURL)
-        case PUT(url:NSURL, inputDict:Dictionary<String,String>)
+        case PUT(url:NSURL, inputDict:Dictionary<String,AnyObject>)
         case GET(url:NSURL)
     }
     
@@ -69,11 +69,13 @@ public class HTTPRestfulUtilizer{
         
     }
     
-    func initSettings(url:NSURL, inputDict:Dictionary<String,String>?){
+    func initSettings(url:NSURL, inputDict:Dictionary<String,AnyObject>?){
         self.url = url
         if let tmp_inputDict = inputDict{
             self.inputDict = inputDict
             self.inputJson = NSJSONSerialization.dataWithJSONObject(inputDict!, options: nil, error: &self.err)
+            
+            println("inputDict : \(inputDict!.description)")
         }
         
     }

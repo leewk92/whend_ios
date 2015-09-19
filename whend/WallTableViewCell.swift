@@ -55,9 +55,9 @@ class WallTableViewCell: UITableViewCell {
             scheduleDateLabel?.text = DateTimeFormatter().DateToStringDate(schedule.startDate!)
             scheduleTimeLabel?.text = DateTimeFormatter().DateToStringTime(schedule.startDate!)
             scheduleLocationLabel?.text = schedule.location
-            scheduleLikeLabel?.text = String(schedule.like_count)
-            scheduleFollowLabel?.text = String(schedule.follow_count)
-            scheduleCommentLabel?.text = String(schedule.comment_count)
+            scheduleLikeLabel?.text = String( schedule.like_count!)
+            scheduleFollowLabel?.text = String(schedule.follow_count!)
+            scheduleCommentLabel?.text = String(schedule.comment_count!)
             if let tmpPhoto_dir = schedule.photo_dir {
                 
                 getPhoto( &schedulePhoto, url: tmpPhoto_dir , _imageDestination: HTTPRestfulUtilizer.imageDestination.wall)
@@ -74,7 +74,7 @@ class WallTableViewCell: UITableViewCell {
             }
             
             // println(schedule.isLike)
-            if schedule.isLike{
+            if schedule.isLike!{
                 likeImageView.setImage(UIImage(named: "liked"), forState: UIControlState.Normal)
             }
             else{
@@ -128,7 +128,7 @@ class WallTableViewCell: UITableViewCell {
         //        updateUI()
         
         var cp = CalendarProvider()
-        if schedule!.isFollow {
+        if schedule!.isFollow! {
             cp.removeEvent(schedule!)
         }
         else{

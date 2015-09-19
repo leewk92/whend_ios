@@ -10,12 +10,12 @@ import Foundation
 
 public class Schedule{
     
-    var id: Int
+    var id: Int?
     var title: String
     
-    var username: String
+    var username: String?
     var user_photo: NSURL?
-    var user_id: Int
+    var user_id: Int?
     
     var starttime: String?
     var endtime: String?
@@ -35,13 +35,15 @@ public class Schedule{
     var timezone: String?
     var color: String?
     
-    var like_count: Int
-    var follow_count: Int
-    var comment_count: Int
+    var like_count: Int?
+    var follow_count: Int?
+    var comment_count: Int?
     
-    var isLike: Bool
-    var isFollow: Bool
-    var isMaster: Bool
+    var isLike: Bool?
+    var isFollow: Bool?
+    var isMaster: Bool?
+    
+    var hashtags: [Int]?
     
     // MARK: - Private Implementation
     
@@ -57,8 +59,8 @@ public class Schedule{
         let user_id = data?.valueForKeyPath(ScheduleKey.User_Id) as? Int
         let starttime = data?.valueForKeyPath(ScheduleKey.StartTime) as? String
         let endtime = data?.valueForKeyPath(ScheduleKey.EndTime) as? String
-        let starttime_ms = DateTimeFormatter().stringToDate(starttime!)
-        let endtime_ms = DateTimeFormatter().stringToDate(endtime!)
+        let starttime_ms = DateTimeFormatter().stringToTimestamp(starttime!)
+        let endtime_ms = DateTimeFormatter().stringToTimestamp(endtime!)
         let date_start = data?.valueForKeyPath(ScheduleKey.Date_Start) as? String
         let date_end = data?.valueForKeyPath(ScheduleKey.Date_End) as? String
         let time_start = data?.valueForKeyPath(ScheduleKey.Time_Start) as? String
@@ -97,12 +99,12 @@ public class Schedule{
         let isFollow = data?.valueForKeyPath(ScheduleKey.IsFollow) as? Bool
         let isMaster = data?.valueForKeyPath(ScheduleKey.IsMaster) as? Bool
         
-        if id != nil {
-            self.id = id!
+        if data != nil {
+            self.id = id
             self.title = title!
-            self.username = username!
+            self.username = username
             self.user_photo = user_photo
-            self.user_id = user_id!
+            self.user_id = user_id
             self.starttime = starttime
             self.endtime = endtime
             self.starttime_ms = starttime_ms
@@ -119,12 +121,12 @@ public class Schedule{
             self.allday = allday!
             self.timezone = timezone
             self.color = color
-            self.like_count = like_count!
-            self.follow_count = follow_count!
-            self.comment_count = comment_count!
-            self.isLike = isLike!
-            self.isFollow = isFollow!
-            self.isMaster = isMaster!
+            self.like_count = like_count
+            self.follow_count = follow_count
+            self.comment_count = comment_count
+            self.isLike = isLike
+            self.isFollow = isFollow
+            self.isMaster = isMaster
         }else{
             self.id = 0
             self.title = "UnKnown"
@@ -158,29 +160,35 @@ public class Schedule{
     }
     
     var asPropertyList: AnyObject {
-        var dictionary = Dictionary<String,String>()
-        dictionary[ScheduleKey.Id] = self.id.description
+        
+        var dtf = DateTimeFormatter()
+        var dictionary = Dictionary<String,AnyObject>()
+//        dictionary[ScheduleKey.Id] = self.id.description
         dictionary[ScheduleKey.Title] = self.title
         dictionary[ScheduleKey.StartTime] = self.starttime
+
         dictionary[ScheduleKey.EndTime] = self.endtime
 //        dictionary[ScheduleKey.StartTime_ms] = self.starttime_ms?.description
 //        dictionary[ScheduleKey.EndTime_ms] = self.endtime_ms?.description
-        dictionary[ScheduleKey.Date_Start] = self.date_start
-        dictionary[ScheduleKey.Date_End] = self.date_end
-        dictionary[ScheduleKey.Time_Start] = self.time_start
-        dictionary[ScheduleKey.Time_End] = self.time_end
-        dictionary[ScheduleKey.Memo] = self.memo
-        dictionary[ScheduleKey.Location] = self.location
-        dictionary[ScheduleKey.Photo_Dir] = self.photo_dir?.description
-        dictionary[ScheduleKey.AllDay] = self.allday.description
-        dictionary[ScheduleKey.TimeZone] = self.timezone
-        dictionary[ScheduleKey.Color] = self.color
-        dictionary[ScheduleKey.Like_Count] = self.like_count.description
-        dictionary[ScheduleKey.Follow_Count] = self.follow_count.description
-        dictionary[ScheduleKey.Comment_Count] = self.comment_count.description
-        dictionary[ScheduleKey.IsLike] = self.isLike.description
-        dictionary[ScheduleKey.IsFollow] = self.isFollow.description
-        dictionary[ScheduleKey.IsMaster] = self.isMaster.description
+//        dictionary[ScheduleKey.Date_Start] = self.date_start
+//        dictionary[ScheduleKey.Date_End] = self.date_end
+//        dictionary[ScheduleKey.Time_Start] = self.time_start
+//        dictionary[ScheduleKey.Time_End] = self.time_end
+        dictionary[ScheduleKey.Memo] = self.memo!
+        dictionary[ScheduleKey.Location] = self.location!
+//        dictionary[ScheduleKey.Photo_Dir] = self.photo_dir?.description
+        dictionary[ScheduleKey.AllDay] = (self.allday == true ? "1" : "0")
+//        dictionary[ScheduleKey.TimeZone] = self.timezone
+//        dictionary[ScheduleKey.Color] = self.color
+//        dictionary[ScheduleKey.Like_Count] = self.like_count.description
+//        dictionary[ScheduleKey.Follow_Count] = self.follow_count.description
+//        dictionary[ScheduleKey.Comment_Count] = self.comment_count.description
+//        dictionary[ScheduleKey.IsLike] = self.isLike.description
+//        dictionary[ScheduleKey.IsFollow] = self.isFollow.description
+//        dictionary[ScheduleKey.IsMaster] = self.isMaster.description
+        
+//        dictionary[ScheduleKey.HashTag] = self.hashtags!.description
+        
         return dictionary
     }
     
@@ -213,27 +221,29 @@ public class Schedule{
         static let IsLike = "like"
         static let IsFollow = "follow"
         static let IsMaster = "master"
+        static let HashTag = "hashtag"
+        
     }
     
     func likeButtonClicked() {
-        if self.isLike{
+        if (self.isLike != nil){
             self.isLike = false
-            like_count = like_count - 1
+            like_count = like_count! - 1
         }
         else {
             self.isLike = true
-            like_count = like_count + 1
+            like_count = like_count! + 1
         }
     }
     
     func followButtonClicked() {
-        if self.isFollow{
+        if (self.isFollow != nil){
             self.isFollow = false
-            follow_count = follow_count - 1
+            follow_count = follow_count! - 1
         }
         else {
             self.isFollow = true
-            follow_count = follow_count + 1
+            follow_count = follow_count! + 1
         }
     }
 
