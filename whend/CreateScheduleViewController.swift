@@ -111,23 +111,33 @@ class CreateScheduleViewController: UIViewController {
         
     }
     
-    func memoParsorToGetHashtags(memo_string:String)-> Dictionary<String,Int>? {
+    func memoParsorToGetHashtags(memo_string:String)-> [Int]? {
         
         var memo = NSString(string: memo_string)
         memo = memo.stringByReplacingOccurrencesOfString("\n" , withString: " ")
         let memo_s = memo.stringByReplacingOccurrencesOfString("#" , withString: " #")
         
         var tmpArray = split(memo_s){$0 == "#"}
-        var hashtags : Dictionary <String, AnyObject> = Dictionary<String,AnyObject>()
+        var hashtags : [Dictionary <String, AnyObject>] = [Dictionary<String,AnyObject>]()
+    
         if tmpArray.count != 0{
-            //tmpArray.removeAtIndex(0)
+            tmpArray.removeAtIndex(0)
+            var i = 0
             for tmpItem in tmpArray {
-                hashtags.updateValue( split(tmpItem){$0 == " "}[0] , forKey: "title" )
+                var tmpDic = Dictionary<String, AnyObject>()
+                tmpDic.updateValue( split(tmpItem){$0 == " "}[0] , forKey: "title" )
+                hashtags.insert(tmpDic , atIndex: i)
+                i = i + 1
             }
             var url = NSURL(string: "http://119.81.176.245/hashtags/getid/")
-            let restfulUtil = HTTPRestfulUtilizer(restTypes: HTTPRestfulUtilizer.RestType.POST(url: url!,inputDict: hashtags))
-            restfulUtil?.requestRestSync()
-            let hashtags_id = restfulUtil?.outputData as! Dictionary<String,Int>
+            let restfulUtil = HTTPRestfulUtilizer(restTypes: HTTPRestfulUtilizer.RestType.POST_array(url: url!,inputDict: hashtags))
+            restfulUtil?.requestRestSync_OuputIsArray()
+            var tmpOutput_NSDic = restfulUtil!.outputJsonArray!
+            
+            var hashtags_id : [Int] = [Int]()
+            for tmpItem in tmpOutput_NSDic {
+                hashtags_id.append( tmpItem.valueForKey("id") as! Int )
+            }
             return hashtags_id
         }
         else {

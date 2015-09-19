@@ -90,7 +90,7 @@ class WallTableViewCell: UITableViewCell {
         schedule?.likeButtonClicked()
         updateUI()
         
-        var url_string = "http://119.81.176.245/schedules/\(schedule!.id)/like/"
+        var url_string = "http://119.81.176.245/schedules/\(schedule!.id!)/like/"
         println(url_string)
         var url:NSURL = NSURL(string: url_string)!
         var inputDict = ["username": "useless", "password": "data"] as Dictionary<String, String>
@@ -111,7 +111,7 @@ class WallTableViewCell: UITableViewCell {
         
         
         
-        var url_string = "http://119.81.176.245/schedules/\(schedule!.id)/follow/"
+        var url_string = "http://119.81.176.245/schedules/\(schedule!.id!)/follow/"
         println(url_string)
         var url:NSURL = NSURL(string: url_string)!
         var inputDict = ["username": "useless", "password": "data"] as Dictionary<String, String>

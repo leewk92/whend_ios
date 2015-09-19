@@ -22,10 +22,12 @@ public class HTTPRestfulUtilizer{
     var urlData: NSData?
     var outputJson: NSDictionary?
     var outputData:NSString?
+    var outputJsonArray: [NSDictionary]?
     var innerResult: [NSDictionary]?
     
     enum RestType{
         case POST(url:NSURL, inputDict:Dictionary<String,AnyObject>)
+        case POST_array(url:NSURL, inputDict:[Dictionary<String,AnyObject>])
         case DELETE(url:NSURL)
         case PUT(url:NSURL, inputDict:Dictionary<String,AnyObject>)
         case GET(url:NSURL)
@@ -46,17 +48,24 @@ public class HTTPRestfulUtilizer{
             return
         case .DELETE(let url):
             self.request = NSMutableURLRequest(URL: url)
-            initSettings(url,inputDict: nil)
-            
+            //initSettings(url,inputDict: nil)
+            self.url = url
             request!.HTTPMethod = "DELETE"
             return
         case .GET(let url):
             self.request = NSMutableURLRequest(URL: url)
-            initSettings(url,inputDict: nil)
-            
+            //initSettings(url,inputDict: nil)
+            self.url = url
             request!.HTTPMethod = "GET"
             return
         case .POST(let url,let inputDict):
+            self.request = NSMutableURLRequest(URL: url)
+            initSettings(url,inputDict: inputDict)
+            
+            request!.HTTPMethod = "POST"
+            request!.HTTPBody = self.inputJson
+            return
+        case .POST_array(let url,let inputDict):
             self.request = NSMutableURLRequest(URL: url)
             initSettings(url,inputDict: inputDict)
             
@@ -79,6 +88,18 @@ public class HTTPRestfulUtilizer{
         }
         
     }
+    
+    func initSettings(url:NSURL, inputDict:[Dictionary<String,AnyObject>]){
+        self.url = url
+        
+        //self.inputDict = inputDict
+        self.inputJson = NSJSONSerialization.dataWithJSONObject(inputDict, options: nil, error: &self.err)
+            
+        println("inputDict : \(inputDict.description)")
+       
+        
+    }
+    
     func requestRestSync(){
         //request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
         request!.setValue("no-cache", forHTTPHeaderField: "Cache-Control")
@@ -196,6 +217,58 @@ public class HTTPRestfulUtilizer{
         })
     }
 
+    func requestRestSync_OuputIsArray(){
+        //request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
+        request!.setValue("no-cache", forHTTPHeaderField: "Cache-Control")
+        request!.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request!.setValue("application/json;charset=utf-8", forHTTPHeaderField: "Accept")
+        
+        // Get Token
+        var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        if let token = prefs.objectForKey("TOKEN") as? String{
+            request!.setValue("Token \(token)", forHTTPHeaderField: "Authorization")
+            
+        }
+        // request!.setValue("Token d1e9cfab3ed0d118ab0e5ea7b088c42fc95dc1dd", forHTTPHeaderField: "Authorization")
+        //
+        urlData = NSURLConnection.sendSynchronousRequest(request!, returningResponse:&response, error:&reponseError)
+        if ( urlData != nil ) {
+            let res = response as! NSHTTPURLResponse!;
+            
+            NSLog("Response code: %ld", res.statusCode);
+            
+            self.outputData = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
+            
+            NSLog("Response ==> %@", outputData!);
+            
+            if (res.statusCode >= 200 && res.statusCode < 300){
+                self.outputData  = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
+                NSLog("Response ==> %@", outputData!);
+                var error: NSError?
+                self.outputJsonArray = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as? [NSDictionary]
+                
+                
+                
+            }else {
+                var alertView:UIAlertView = UIAlertView()
+                alertView.title = "Connection Alert"
+                alertView.message = "Connection Failed"
+                alertView.delegate = self
+                alertView.addButtonWithTitle("OK")
+                alertView.show()
+            }
+        } else {
+            var alertView:UIAlertView = UIAlertView()
+            alertView.title = "Connection Alert"
+            alertView.message = "Connection Failure"
+            if let error = reponseError {
+                alertView.message = (error.localizedDescription)
+            }
+            alertView.delegate = self
+            alertView.addButtonWithTitle("OK")
+            alertView.show()
+        }
+    }
     
     func performWithOutputData(){
         // Override like following codes.

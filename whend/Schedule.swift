@@ -226,7 +226,11 @@ public class Schedule{
     }
     
     func likeButtonClicked() {
-        if (self.isLike != nil){
+        
+        let isLike = self.isLike!
+        
+        
+        if isLike {
             self.isLike = false
             like_count = like_count! - 1
         }
@@ -237,7 +241,9 @@ public class Schedule{
     }
     
     func followButtonClicked() {
-        if (self.isFollow != nil){
+        let isFollow = self.isFollow!
+        
+        if isFollow {
             self.isFollow = false
             follow_count = follow_count! - 1
         }
