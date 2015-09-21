@@ -334,7 +334,7 @@ public class HTTPRestfulUtilizer{
                         
                         // Update the cell
                         dispatch_async(dispatch_get_main_queue(), {
-                            _target.image = image
+                            _target?.image = image
                         })
                     }
                 }

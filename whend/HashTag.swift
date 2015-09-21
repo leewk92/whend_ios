@@ -10,28 +10,32 @@ import Foundation
 
 public class HashTag{
     
-    var id: Int
+    var id: Int?
     var title: String
     var photo: NSURL?
     
-    var follower_count: Int
-    var count_schedule: Int
-    var count_upcoming_schedule: Int
+    var follower_count: Int?
+    var count_schedule: Int?
+    var count_upcoming_schedule: Int?
     
-    var isFollow: Bool
+    var isFollow: Bool?
     
     // MARK: - Private Implementation
     
     init?(data: NSDictionary?) {
         let id = data?.valueForKeyPath(HashTagKey.Id) as? Int
         let title = data?.valueForKeyPath(HashTagKey.Title) as? String
-        let photo = data?.valueForKeyPath(HashTagKey.Photo) as? NSURL
+        var photo : NSURL? = nil
+        if let s_photo = data?.valueForKeyPath(HashTagKey.Photo) as? String{
+            photo = NSURL(string: s_photo)
+        }
+        
         let follower_count = data?.valueForKeyPath(HashTagKey.Follower_Count) as? Int
         let count_schedule = data?.valueForKeyPath(HashTagKey.Count_Schedule) as? Int
         let count_upcoming_schedule = data?.valueForKeyPath(HashTagKey.Count_Upcoming_Schedule) as? Int
         let isFollow = data?.valueForKeyPath(HashTagKey.IsFollow) as? Bool
         
-        if id != nil {
+        if data != nil {
             self.id = id!
             self.title = title!
             self.photo = photo
@@ -62,33 +66,20 @@ public class HashTag{
         self.isFollow = false
     }
 //    
-//    var asPropertyList: AnyObject {
-//        var dictionary = Dictionary<String,String>()
-//        dictionary[ScheduleKey.Id] = self.id.description
-//        dictionary[ScheduleKey.Title] = self.title
-//        dictionary[ScheduleKey.StartTime] = self.starttime
-//        dictionary[ScheduleKey.EndTime] = self.endtime
-//        dictionary[ScheduleKey.StartTime_ms] = self.starttime_ms?.description
-//        dictionary[ScheduleKey.EndTime_ms] = self.endtime_ms?.description
-//        dictionary[ScheduleKey.Date_Start] = self.date_start
-//        dictionary[ScheduleKey.Date_End] = self.date_end
-//        dictionary[ScheduleKey.Time_Start] = self.time_start
-//        dictionary[ScheduleKey.Time_End] = self.time_end
-//        dictionary[ScheduleKey.Memo] = self.memo
-//        dictionary[ScheduleKey.Location] = self.location
-//        dictionary[ScheduleKey.Photo_Dir] = self.photo_dir?.description
-//        dictionary[ScheduleKey.AllDay] = self.allday.description
-//        dictionary[ScheduleKey.TimeZone] = self.timezone
-//        dictionary[ScheduleKey.Color] = self.color
-//        dictionary[ScheduleKey.Like_Count] = self.like_count.description
-//        dictionary[ScheduleKey.Follow_Count] = self.follow_count.description
-//        dictionary[ScheduleKey.Comment_Count] = self.comment_count.description
-//        dictionary[ScheduleKey.IsLike] = self.isLike.description
-//        dictionary[ScheduleKey.IsFollow] = self.isFollow.description
-//        
-//        return dictionary
-//    }
-//    
+    var asPropertyList: AnyObject {
+        var dictionary = Dictionary<String,AnyObject>()
+//        dictionary[HashTagKey.Id] = self.id.description
+        dictionary[HashTagKey.Title] = self.title
+        dictionary[HashTagKey.Photo] = self.photo
+        dictionary[HashTagKey.Follower_Count] = self.follower_count
+        dictionary[HashTagKey.Count_Schedule] = self.count_schedule
+        dictionary[HashTagKey.Count_Upcoming_Schedule] = self.count_upcoming_schedule
+        
+        dictionary[HashTagKey.IsFollow] = self.isFollow
+        
+        return dictionary
+    }
+    
     
     
     struct HashTagKey {
@@ -96,12 +87,28 @@ public class HashTag{
         static let Id = "id"
         static let Title = "title"
         static let Photo = "photo"
-        static let Follower_Count = "follower_count"
+        static let Follower_Count = "count_follower"
         static let Count_Schedule = "count_schedule"
         static let Count_Upcoming_Schedule = "count_upcoming_schedule"
-        static let IsFollow = "isFollow"
+        static let IsFollow = "is_follow"
         
     }
+    
+    
+    func followButtonClicked() {
+        let isFollow = self.isFollow!
+        
+        if isFollow {
+            self.isFollow = false
+            follower_count = follower_count! - 1
+        }
+        else {
+            self.isFollow = true
+            follower_count = follower_count! + 1
+        }
+    }
+
+    
 
 
 }
