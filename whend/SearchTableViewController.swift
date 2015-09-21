@@ -8,13 +8,12 @@
 
 import UIKit
 
-class SearchTableViewController: UIViewController, UITableViewDataSource {
+class SearchTableViewController: UITableViewController {
 
     var hashtags:[HashTag] = []
     var nextUrl:NSURL?
     var itemCount:Int = 0
     
-    @IBOutlet weak var searchEditTextField: UITextField!
   
     override func viewDidLoad() {
         
@@ -31,15 +30,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource {
         itemCount = (restfulUtil.innerResult?.count)!
         nextUrl = restfulUtil.nextUrl
         
-        // Create our UITableView with our view's frame
-        var tableView: UITableView = UITableView(frame: self.view.frame)
         
-        // Register our cell's class for cell reuse
-        tableView.registerClass(SearchTableViewCell.self, forCellReuseIdentifier: "SearchTableViewCell")
-        
-        // Set our source and add the tableview to the view
-        tableView.dataSource = self
-        self.view.addSubview(tableView)
         
         /*
         let outputJson = restfulUtil.outputJson!
@@ -174,13 +165,13 @@ class SearchTableViewController: UIViewController, UITableViewDataSource {
     
     // MARK: - Table view data source
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         // return 0
@@ -191,12 +182,12 @@ class SearchTableViewController: UIViewController, UITableViewDataSource {
         static let CellReuseIdentifier = "SearchTableViewCell"
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         //        var cell:WallTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("ScheduleItem") as! WallTableViewCell
         
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(StoryBoard.CellReuseIdentifier, forIndexPath: indexPath) as! SearchTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("SearchTableViewCell", forIndexPath: indexPath) as! SearchTableViewCell
         
         //        schedule.append(Schedule())
         cell.hashtag = self.hashtags[indexPath.row]
@@ -214,7 +205,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource {
     }
     
     // for endless scrolling
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if itemCount - indexPath.row == 3{
             var url:NSURL = nextUrl!
