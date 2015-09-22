@@ -18,6 +18,10 @@ class SearchTableViewController: UITableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        tableView.rowHeight = tableView.frame.width/4
+        // tableView.estimatedRowHeight = tableView.rowHeight
+
         var url:NSURL = NSURL(string: "http://119.81.176.245/hashtags/")!
         var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes: HTTPRestfulUtilizer.RestType.GET(url: url))!
         restfulUtil.requestRestSync()
@@ -30,7 +34,7 @@ class SearchTableViewController: UITableViewController {
         itemCount = (restfulUtil.innerResult?.count)!
         nextUrl = restfulUtil.nextUrl
         
-        
+       
         
         /*
         let outputJson = restfulUtil.outputJson!
@@ -201,6 +205,7 @@ class SearchTableViewController: UITableViewController {
         //        }
         //
         
+        //cell.sizeThatFits(CGSize(width: cell.frame.width, height: cell.frame.width/4))
         return cell
     }
     

@@ -62,6 +62,9 @@ class SearchTableViewCell: UITableViewCell {
         restfulUtil.requestRestAsync()
     }
     
+//    override func sizeThatFits(size: CGSize) -> CGSize {
+//        return CGSize(width: self.frame.width, height: self.frame.width/4)
+//    }
     
     
     func getPhoto( inout photo:UIImageView! , url:NSURL, _imageDestination: HTTPRestfulUtilizer.imageDestination){

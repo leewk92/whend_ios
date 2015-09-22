@@ -23,6 +23,7 @@
 		04F059BD1BAD84D2009459E5 /* NotificationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F059BC1BAD84D2009459E5 /* NotificationViewCell.swift */; };
 		FA02A6BE1BB02456004248B9 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02A6BD1BB02456004248B9 /* SearchTableViewController.swift */; };
 		FA02A6C01BB0247B004248B9 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02A6BF1BB0247B004248B9 /* SearchTableViewCell.swift */; };
+		FA2EB8961BB139C000E3B12C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2EB8951BB139C000E3B12C /* Notification.swift */; };
 		FAE13E7D1BA148190075FA9A /* HTTPRestfulUtilizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE13E7C1BA148190075FA9A /* HTTPRestfulUtilizer.swift */; };
 		FAE13E7F1BA1485C0075FA9A /* AppPref.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE13E7E1BA1485C0075FA9A /* AppPref.swift */; };
 		FAE7F1B01B9EA19500F6818D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE7F1AF1B9EA19500F6818D /* User.swift */; };
@@ -66,6 +67,7 @@
 		04F059BC1BAD84D2009459E5 /* NotificationViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewCell.swift; sourceTree = "<group>"; };
 		FA02A6BD1BB02456004248B9 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		FA02A6BF1BB0247B004248B9 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		FA2EB8951BB139C000E3B12C /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		FAE13E7C1BA148190075FA9A /* HTTPRestfulUtilizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRestfulUtilizer.swift; sourceTree = "<group>"; };
 		FAE13E7E1BA1485C0075FA9A /* AppPref.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPref.swift; sourceTree = "<group>"; };
 		FAE7F1AF1B9EA19500F6818D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				FAE7F1B31B9EA1AA00F6818D /* HashTag.swift */,
 				FAE7F1B51B9EA1DB00F6818D /* Comment.swift */,
 				FAE7F1B71B9EA20A00F6818D /* FacebookFriend.swift */,
+				FA2EB8951BB139C000E3B12C /* Notification.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				FAEC387D1BA9CA7B00663B7B /* DateTimeFormatter.swift in Sources */,
 				FAE7F1B01B9EA19500F6818D /* User.swift in Sources */,
 				0446D1EB1BA414B200FBC76E /* UploadViewController.swift in Sources */,
+				FA2EB8961BB139C000E3B12C /* Notification.swift in Sources */,
 				FAEC38771BA98BBD00663B7B /* CalendarProvider.swift in Sources */,
 				FAE13E7D1BA148190075FA9A /* HTTPRestfulUtilizer.swift in Sources */,
 				044F64CF1B885CDA00A318E6 /* LoginViewController.swift in Sources */,

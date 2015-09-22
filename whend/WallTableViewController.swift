@@ -195,7 +195,7 @@ class WallTableViewController: UITableViewController {
 //            var getImageUtil = HTTPRestfulUtilizer()
 //            getImageUtil.getUrlImage(&cell.schedulePhoto, _url: tmpPhoto_dir)
 //        }
-//        
+//
         
         return cell
     }
