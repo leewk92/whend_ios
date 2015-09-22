@@ -217,6 +217,7 @@ class WallTableViewController: UITableViewController {
             }
             self.itemCount += (restfulUtil.innerResult?.count)!
             nextUrl = restfulUtil.nextUrl
+            
             tableView.reloadData()
         }
     }

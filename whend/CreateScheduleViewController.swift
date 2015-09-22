@@ -106,12 +106,21 @@ class CreateScheduleViewController: UIViewController, UIImagePickerControllerDel
         let url:NSURL = NSURL( string: "http://119.81.176.245/schedules/")!
         var inputDict = schedule.asPropertyList as! Dictionary<String, AnyObject>
         
+        //insert Photo to inputDict
+        
+        if let uploadImage = photoImageView.image{
+        
+            let imageData = UIImageJPEGRepresentation(photoImageView.image, 1)
+            let base64String = imageData.base64EncodedStringWithOptions(.allZeros)
+            inputDict.updateValue(base64String, forKey: "photo")
+        }
+        
+        
         if let hashtags_id = memoParsorToGetHashtags( memoTextField.text){
             inputDict.updateValue( hashtags_id, forKey: "hashtag")
             let restfulUtil: HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes: HTTPRestfulUtilizer.RestType.POST(url: url, inputDict: inputDict))!
             restfulUtil.requestRestSync()
         }
-        
         
     }
     

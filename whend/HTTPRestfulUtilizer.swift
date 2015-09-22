@@ -84,7 +84,7 @@ public class HTTPRestfulUtilizer{
             self.inputDict = inputDict
             self.inputJson = NSJSONSerialization.dataWithJSONObject(inputDict!, options: nil, error: &self.err)
             
-            println("inputDict : \(inputDict!.description)")
+            // println("inputDict : \(inputDict!.description)")
         }
         
     }
@@ -95,7 +95,7 @@ public class HTTPRestfulUtilizer{
         //self.inputDict = inputDict
         self.inputJson = NSJSONSerialization.dataWithJSONObject(inputDict, options: nil, error: &self.err)
             
-        println("inputDict : \(inputDict.description)")
+       // println("inputDict : \(inputDict.description)")
        
         
     }
