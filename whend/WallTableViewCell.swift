@@ -38,6 +38,8 @@ class WallTableViewCell: UITableViewCell {
     
     @IBOutlet weak var likeImageView: UIButton!
     
+    @IBOutlet weak var scheduleMemoLabel: UILabel!
+    
     func updateUI() {
         scheduleUserNameLabel?.text = nil
         scheduleTitleLabel?.text = nil
@@ -47,6 +49,7 @@ class WallTableViewCell: UITableViewCell {
         scheduleLikeLabel?.text = nil
         scheduleFollowLabel?.text = nil
         scheduleCommentLabel?.text = nil
+        scheduleMemoLabel?.text = nil
         //schedulePhoto?.image = nil
         if let schedule = self.schedule
         {
@@ -58,6 +61,8 @@ class WallTableViewCell: UITableViewCell {
             scheduleLikeLabel?.text = String( schedule.like_count!)
             scheduleFollowLabel?.text = String(schedule.follow_count!)
             scheduleCommentLabel?.text = String(schedule.comment_count!)
+            scheduleMemoLabel?.text = String(schedule.memo!)
+            
             if let tmpPhoto_dir = schedule.photo_dir {
                 
                 getPhoto( &schedulePhoto, url: tmpPhoto_dir , _imageDestination: HTTPRestfulUtilizer.imageDestination.wall)

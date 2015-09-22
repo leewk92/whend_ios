@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MobileCoreServices
 
-class CreateScheduleViewController: UIViewController {
+class CreateScheduleViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     
     @IBOutlet weak var startTimeField: UITextField!
@@ -17,6 +18,9 @@ class CreateScheduleViewController: UIViewController {
     @IBOutlet weak var alldaySwitch: UISwitch!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var memoTextField: UITextField!
+    
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var cameraRollButton: UIButton!
     
     var startTime_NSDate : NSDate?
     var endTime_NSDate : NSDate?
@@ -145,6 +149,60 @@ class CreateScheduleViewController: UIViewController {
         }
     }
     
+    @IBAction func useCameraRoll(sender: AnyObject) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerControllerSourceType.SavedPhotosAlbum) {
+                let imagePicker = UIImagePickerController()
+                
+                imagePicker.delegate = self
+                imagePicker.sourceType =
+                    UIImagePickerControllerSourceType.PhotoLibrary
+                imagePicker.mediaTypes = [kUTTypeImage as NSString]
+                imagePicker.allowsEditing = false
+                self.presentViewController(imagePicker, animated: true,
+                    completion: nil)
+               // newMedia = false
+        }
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        
+        let mediaType = info[UIImagePickerControllerMediaType] as! String
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        if mediaType == (kUTTypeImage as! String) {
+            let image = info[UIImagePickerControllerOriginalImage]
+                as! UIImage
+            
+            photoImageView.image = image
+//            
+//            if (newMedia == true) {
+//                UIImageWriteToSavedPhotosAlbum(image, self,
+//                    "image:didFinishSavingWithError:contextInfo:", nil)
+//            } else if mediaType.isEqualToString(kUTTypeMovie as! String) {
+//                // Code to support video here
+//            }
+            
+        }
+    }
+    
+    func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafePointer<Void>) {
+        
+        if error != nil {
+            let alert = UIAlertController(title: "Save Failed",
+                message: "Failed to save image",
+                preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let cancelAction = UIAlertAction(title: "OK",
+                style: .Cancel, handler: nil)
+            
+            alert.addAction(cancelAction)
+            self.presentViewController(alert, animated: true,
+                completion: nil)
+        }
+    }
     
     /*
     // MARK: - Navigation
