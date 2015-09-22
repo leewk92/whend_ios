@@ -16,15 +16,17 @@ class NotificationViewCell: UITableViewCell {
         }
     }
     
-    
     @IBOutlet weak var notificationActorLabel: UILabel!
-    @IBOutlet weak var notificationVerbDescriptionLabel: UILabel!
+    @IBOutlet weak var notificationVerbLabel: UILabel!
+    @IBOutlet weak var notificationDescriptionLabel: UILabel!
+
     
     
     func updateUI() {
         
         notificationActorLabel?.text = nil
-        notificationVerbDescriptionLabel?.text = nil
+        notificationVerbLabel?.text = nil
+        notificationDescriptionLabel?.text = nil
         
         if let notification = self.notification
         {
@@ -37,9 +39,10 @@ class NotificationViewCell: UITableViewCell {
                 
             }
             if let description = notification.description{
-                notificationVerbDescriptionLabel?.text = "\(notification.verb!) \n \(description)"
+                notificationDescriptionLabel?.text = description
+                notificationVerbLabel?.text = notification.verb!
             }else{
-                notificationVerbDescriptionLabel?.text = notification.verb!
+                notificationVerbLabel?.text = notification.verb!
             }
             
 //            
