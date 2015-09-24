@@ -25,8 +25,8 @@ class CommentViewCell: UITableViewCell {
     
     func updateUI() {
        
-        usernameLabel?.text = "ho"
-        contentLabel?.text = "jo"
+        usernameLabel?.text = nil
+        contentLabel?.text = nil
         
         
         
@@ -34,11 +34,9 @@ class CommentViewCell: UITableViewCell {
         
         if let comment = self.comment
         {
-            usernameLabel?.text = "ho"
-            contentLabel?.text = "JO"
-        
-//            usernameLabel?.text = comment.write_username!
-//            contentLabel?.text = comment.content!
+            
+            usernameLabel?.text = comment.write_username!
+            contentLabel?.text = comment.content!
         
 //            likeImageView.addTarget(self, action: Selector("clickLikeButton:"), forControlEvents: UIControlEvents.TouchUpInside)
         }

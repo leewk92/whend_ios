@@ -23,6 +23,7 @@
 		04F059BD1BAD84D2009459E5 /* NotificationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F059BC1BAD84D2009459E5 /* NotificationViewCell.swift */; };
 		FA02A6BE1BB02456004248B9 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02A6BD1BB02456004248B9 /* SearchTableViewController.swift */; };
 		FA02A6C01BB0247B004248B9 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02A6BF1BB0247B004248B9 /* SearchTableViewCell.swift */; };
+		FA1F503F1BB3D4B50087FF09 /* CommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1F503E1BB3D4B50087FF09 /* CommentTableViewController.swift */; };
 		FA2EB8961BB139C000E3B12C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2EB8951BB139C000E3B12C /* Notification.swift */; };
 		FAE13E7D1BA148190075FA9A /* HTTPRestfulUtilizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE13E7C1BA148190075FA9A /* HTTPRestfulUtilizer.swift */; };
 		FAE13E7F1BA1485C0075FA9A /* AppPref.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE13E7E1BA1485C0075FA9A /* AppPref.swift */; };
@@ -69,6 +70,7 @@
 		04F059BC1BAD84D2009459E5 /* NotificationViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewCell.swift; sourceTree = "<group>"; };
 		FA02A6BD1BB02456004248B9 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		FA02A6BF1BB0247B004248B9 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		FA1F503E1BB3D4B50087FF09 /* CommentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewController.swift; sourceTree = "<group>"; };
 		FA2EB8951BB139C000E3B12C /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		FAE13E7C1BA148190075FA9A /* HTTPRestfulUtilizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRestfulUtilizer.swift; sourceTree = "<group>"; };
 		FAE13E7E1BA1485C0075FA9A /* AppPref.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPref.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				04F059BC1BAD84D2009459E5 /* NotificationViewCell.swift */,
 				FAE305241BB2C7AA0028CA90 /* SpecificScheduleViewController.swift */,
 				FAE305261BB2C8090028CA90 /* CommentViewCell.swift */,
+				FA1F503E1BB3D4B50087FF09 /* CommentTableViewController.swift */,
 				044F64AA1B8837C500A318E6 /* LaunchScreen.xib */,
 				044F64A51B8837C500A318E6 /* Main.storyboard */,
 				045897821BAA82F2000655E4 /* CreateScheduleViewController.swift */,
@@ -302,6 +305,7 @@
 				FAE7F1B01B9EA19500F6818D /* User.swift in Sources */,
 				0446D1EB1BA414B200FBC76E /* UploadViewController.swift in Sources */,
 				FA2EB8961BB139C000E3B12C /* Notification.swift in Sources */,
+				FA1F503F1BB3D4B50087FF09 /* CommentTableViewController.swift in Sources */,
 				FAEC38771BA98BBD00663B7B /* CalendarProvider.swift in Sources */,
 				FAE305271BB2C8090028CA90 /* CommentViewCell.swift in Sources */,
 				FAE13E7D1BA148190075FA9A /* HTTPRestfulUtilizer.swift in Sources */,

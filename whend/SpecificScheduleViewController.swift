@@ -24,14 +24,6 @@ class SpecificScheduleViewController : UIViewController, UITableViewDataSource ,
         updateUI()
         
         
-        var tableView:UITableView = UITableView(frame:self.view.viewWithTag(1)!.frame)
-        
-        // Register our cell's class for cell reuse
-        tableView.registerClass(CommentViewCell.self, forCellReuseIdentifier: "CommentViewCell")
-        
-        // Set our source and add the tableview to the view
-        tableView.dataSource = self
-        self.view.viewWithTag(1)!.addSubview(tableView)
         
         
         var url:NSURL = NSURL(string: "http://119.81.176.245/schedules/\(schedule!.id!)/comments/")!
@@ -46,7 +38,15 @@ class SpecificScheduleViewController : UIViewController, UITableViewDataSource ,
         itemCount = (restfulUtil.innerResult?.count)!
         nextUrl = restfulUtil.nextUrl
         
-    
+        var tableView:UITableView = UITableView(frame:self.view.viewWithTag(1)!.frame)
+        
+        // Register our cell's class for cell reuse
+        tableView.registerClass(CommentViewCell.self, forCellReuseIdentifier: "CommentViewCell")
+        
+        // Set our source and add the tableview to the view
+        tableView.dataSource = self
+        self.view.viewWithTag(1)!.addSubview(tableView)
+
     }
     
     
@@ -128,6 +128,7 @@ class SpecificScheduleViewController : UIViewController, UITableViewDataSource ,
                 likeImageView.setImage(UIImage(named: "like"), forState: UIControlState.Normal)
             }
             likeImageView.addTarget(self, action: Selector("clickLikeButton:"), forControlEvents: UIControlEvents.TouchUpInside)
+            
         }
     }
     
@@ -184,6 +185,14 @@ class SpecificScheduleViewController : UIViewController, UITableViewDataSource ,
         schedule?.followButtonClicked()
         updateUI()
     }
+    
+    @IBAction func clickCommentButton(sender: UIButton) {
+        
+      
+        self.performSegueWithIdentifier("goto_comments", sender: self)
+        
+    }
+    
     
     
     func getPhoto( inout photo:UIImageView!, url:NSURL, _imageDestination: HTTPRestfulUtilizer.imageDestination){
@@ -251,19 +260,18 @@ class SpecificScheduleViewController : UIViewController, UITableViewDataSource ,
     
     private struct StoryBoard {
         static let CellReuseIdentifier = "CommentViewCell"
-      //  static let SpecificScheduleSegueIdentifier = "GoToSpecificSchedule"
+        static let CommenSegueIdentifier = "goto_comments"
     }
     
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == StoryBoard.SpecificScheduleSegueIdentifier {
-//            if let destination = segue.destinationViewController as? SpecificScheduleViewController {
-//                if let index = tableView.indexPathForSelectedRow()?.row {
-//                    destination.schedule = schedules[index]
-//                }
-//            }
-//        }
-//    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == StoryBoard.CommenSegueIdentifier {
+            if let destination = segue.destinationViewController as? CommentTableViewController {
+                destination.schedule = self.schedule
+                
+            }
+        }
+    }
 
     
 }
