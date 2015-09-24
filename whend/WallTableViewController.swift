@@ -177,6 +177,7 @@ class WallTableViewController: UITableViewController {
     
     private struct StoryBoard {
         static let CellReuseIdentifier = "ScheduleItem"
+        static let SpecificScheduleSegueIdentifier = "GoToSpecificSchedule"
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -219,6 +220,16 @@ class WallTableViewController: UITableViewController {
             nextUrl = restfulUtil.nextUrl
             
             tableView.reloadData()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == StoryBoard.SpecificScheduleSegueIdentifier {
+            if let destination = segue.destinationViewController as? SpecificScheduleViewController {
+                if let index = tableView.indexPathForSelectedRow()?.row {
+                    destination.schedule = schedules[index]
+                }
+            }
         }
     }
     

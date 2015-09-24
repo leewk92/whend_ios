@@ -1081,7 +1081,7 @@
                                     <outlet property="scheduleTitleLabel" destination="0Y9-Ht-taS" id="75G-vq-PxM"/>
                                     <outlet property="scheduleUserNameLabel" destination="YJl-uB-Lxd" id="P3y-gk-M1I"/>
                                     <outlet property="userPhoto" destination="XM5-qv-IMl" id="CcO-eD-ar7"/>
-                                    <segue destination="fgL-2D-stU" kind="show" id="m1J-Hm-izk"/>
+                                    <segue destination="fgL-2D-stU" kind="show" identifier="GoToSpecificSchedule" id="m1J-Hm-izk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1096,10 +1096,10 @@
             </objects>
             <point key="canvasLocation" x="1854" y="-172"/>
         </scene>
-        <!--View Controller-->
+        <!--Specific Schedule View Controller-->
         <scene sceneID="ZTB-9T-5tw">
             <objects>
-                <viewController id="fgL-2D-stU" sceneMemberID="viewController">
+                <viewController id="fgL-2D-stU" customClass="SpecificScheduleViewController" customModule="whend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X6e-l8-03x"/>
                         <viewControllerLayoutGuide type="bottom" id="ygD-1O-dpk"/>
@@ -1155,6 +1155,9 @@
                                         <exclude reference="sUV-o3-qZo"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="clickLikeButton:" destination="fgL-2D-stU" eventType="touchUpInside" id="0D2-fy-pKG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fda-rd-rG2">
                                 <rect key="frame" x="88" y="313" width="25" height="25"/>
@@ -1168,6 +1171,9 @@
                                 <state key="normal" image="download">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickFollowButton:" destination="fgL-2D-stU" eventType="touchUpInside" id="EEE-fQ-xFu"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pc-J5-9Cr">
                                 <rect key="frame" x="54" y="27" width="31" height="15"/>
@@ -1279,11 +1285,11 @@
                                 <rect key="frame" x="1" y="155" width="600" height="150"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uLc-b4-PGe">
+                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" restorationIdentifier="contentTable" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uLc-b4-PGe">
                                 <rect key="frame" x="0.0" y="346" width="600" height="246"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="SeB-bB-9ur" detailTextLabel="u3n-4S-pAx" style="IBUITableViewCellStyleValue2" id="KRZ-jc-iEe">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentViewCell" textLabel="SeB-bB-9ur" detailTextLabel="u3n-4S-pAx" style="IBUITableViewCellStyleValue2" id="KRZ-jc-iEe" customClass="CommentViewCell" customModule="whend" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KRZ-jc-iEe" id="a9E-wg-8nx">
@@ -1303,6 +1309,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contentLabel" destination="u3n-4S-pAx" id="cQN-iL-26R"/>
+                                            <outlet property="usernameLabel" destination="SeB-bB-9ur" id="THF-Be-B8Q"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1387,6 +1397,22 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="likeImageView" destination="pJs-8m-UFR" id="BXq-vz-UiS"/>
+                        <outlet property="scheduleCommentLabel" destination="rhX-Wq-xUe" id="Jfk-GH-BXW"/>
+                        <outlet property="scheduleEndDateLabel" destination="YN1-gk-Q7e" id="PNS-4W-70f"/>
+                        <outlet property="scheduleEndTimeLabel" destination="FWE-O9-dwu" id="1uz-cY-GbR"/>
+                        <outlet property="scheduleFollowLabel" destination="6f0-7w-ynL" id="tLk-Xb-g31"/>
+                        <outlet property="scheduleLikeLabel" destination="as0-w2-vpw" id="ZRK-XE-GUf"/>
+                        <outlet property="scheduleLocationLabel" destination="nhZ-hq-eys" id="ne9-Ut-kRN"/>
+                        <outlet property="scheduleMemoLabel" destination="vcM-Od-9Jz" id="Aw8-DB-YIe"/>
+                        <outlet property="schedulePhoto" destination="E5D-r5-fXO" id="cYB-F1-yYp"/>
+                        <outlet property="scheduleStartDateLabel" destination="I28-SF-4Ib" id="Kkc-mf-7mn"/>
+                        <outlet property="scheduleStartTimeLabel" destination="OWK-fi-FBj" id="B0U-aR-pl1"/>
+                        <outlet property="scheduleTitleLabel" destination="1LI-PB-G75" id="zar-4s-OQU"/>
+                        <outlet property="scheduleUserNameLabel" destination="4Pc-J5-9Cr" id="Gda-I8-bMA"/>
+                        <outlet property="userPhoto" destination="EJc-Zo-4dO" id="GS2-Wg-B8V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2IS-HU-gJi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

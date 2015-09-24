@@ -10,9 +10,10 @@ import Foundation
 
 public class Comment{
     
-    var id: Int
-    var content: String
-    var write_username: String
+    var id: Int?
+    var content: String?
+    var write_username: String?
+    var wried_userid : Int?
     var write_userphoto: NSURL?
     
     // MARK: - Private Implementation
@@ -21,13 +22,13 @@ public class Comment{
         let id = data?.valueForKeyPath(CommentKey.Id) as? Int
         let content = data?.valueForKeyPath(CommentKey.Content) as? String
         let write_username = data?.valueForKeyPath(CommentKey.Write_Username) as? String
-        let write_userphoto = data?.valueForKeyPath(CommentKey.Write_Userphoto) as? NSURL
+       // let write_userphoto = data?.valueForKeyPath(CommentKey.Write_Userphoto) as? NSURL
        
-        if id != nil {
+        if data != nil {
             self.id = id!
             self.content = content!
             self.write_username = write_username!
-            self.write_userphoto = write_userphoto
+            //self.write_userphoto = write_userphoto
             
             
         }else{
@@ -78,8 +79,8 @@ public class Comment{
         
         static let Id = "id"
         static let Content = "content"
-        static let Write_Username = "write_username"
-        static let Write_Userphoto = "write_userphoto"
+        static let Write_Username = "user_name"
+        static let Write_UserId = "user_id"
     
     }
     
