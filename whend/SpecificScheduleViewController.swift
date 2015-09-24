@@ -11,19 +11,30 @@ import UIKit
 class SpecificScheduleViewController : UIViewController, UITableViewDataSource , UITableViewDelegate {
     
     
+    @IBOutlet weak var tableView: UITableView!
     var comments:[Comment] = []
     var nextUrl:NSURL?
     var itemCount:Int = 0
 
     var schedule: Schedule?
     
-    
+   
     override func viewDidLoad(){
         
         super.viewDidLoad()
         updateUI()
         
         
+        
+        // Register our cell's class for cell reuse
+        tableView.registerClass(CommentViewCell.self, forCellReuseIdentifier: "CommentViewCell")
+        
+        // Set our source and add the tableview to the view
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        //self.view.addSubview(tableView)
+
         
         
         var url:NSURL = NSURL(string: "http://119.81.176.245/schedules/\(schedule!.id!)/comments/")!
@@ -38,15 +49,9 @@ class SpecificScheduleViewController : UIViewController, UITableViewDataSource ,
         itemCount = (restfulUtil.innerResult?.count)!
         nextUrl = restfulUtil.nextUrl
         
-        var tableView:UITableView = UITableView(frame:self.view.viewWithTag(1)!.frame)
+       // var tableView:UITableView = UITableView(frame:self.view.viewWithTag(1)!.frame)
         
-        // Register our cell's class for cell reuse
-        tableView.registerClass(CommentViewCell.self, forCellReuseIdentifier: "CommentViewCell")
-        
-        // Set our source and add the tableview to the view
-        tableView.dataSource = self
-        self.view.viewWithTag(1)!.addSubview(tableView)
-
+       
     }
     
     

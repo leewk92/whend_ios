@@ -1686,6 +1686,11 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="fgL-2D-stU" id="5FL-2D-Zat"/>
+                                    <outlet property="delegate" destination="fgL-2D-stU" id="BRR-uG-meu"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcM-Od-9Jz">
                                 <rect key="frame" x="0.0" y="207" width="600" height="150"/>
@@ -1789,6 +1794,7 @@
                         <outlet property="scheduleStartTimeLabel" destination="OWK-fi-FBj" id="9Tb-FX-VGo"/>
                         <outlet property="scheduleTitleLabel" destination="1LI-PB-G75" id="PFQ-ju-ZEb"/>
                         <outlet property="scheduleUserNameLabel" destination="4Pc-J5-9Cr" id="zqm-uY-z33"/>
+                        <outlet property="tableView" destination="uLc-b4-PGe" id="ttt-Zp-Z6H"/>
                         <outlet property="userPhoto" destination="EJc-Zo-4dO" id="ABP-w2-3jx"/>
                         <segue destination="w1f-ji-PYl" kind="show" identifier="goto_userlist" id="3JF-2y-Soa"/>
                         <segue destination="qNf-8M-654" kind="show" identifier="goto_comments" id="yCQ-dR-oqK"/>
@@ -1893,7 +1899,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Fta-pe-lKU"/>
-        <segue reference="n1S-on-smN"/>
-        <segue reference="4us-QF-9GR"/>
+        <segue reference="yCQ-dR-oqK"/>
+        <segue reference="3JF-2y-Soa"/>
     </inferredMetricsTieBreakers>
 </document>
