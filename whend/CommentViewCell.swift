@@ -24,9 +24,12 @@ class CommentViewCell: UITableViewCell {
    
     
     func updateUI() {
-        
+       
         usernameLabel?.text = "ho"
         contentLabel?.text = "jo"
+        
+        
+        
         println(usernameLabel?.text)
         
         if let comment = self.comment
