@@ -13,7 +13,7 @@ public class Comment{
     var id: Int?
     var content: String?
     var write_username: String?
-    var wried_userid : Int?
+    var write_userid : Int?
     var write_userphoto: NSURL?
     
     // MARK: - Private Implementation

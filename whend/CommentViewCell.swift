@@ -12,26 +12,31 @@ class CommentViewCell: UITableViewCell {
 
     var comment: Comment? {
         didSet {
+            println(comment!.content!)
             updateUI()
         }
     }
     
-    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var usernameLabel : UILabel!
     
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var contentLabel : UILabel!
     
    
     
     func updateUI() {
-        usernameLabel?.text = nil
-        contentLabel?.text = nil
         
+        usernameLabel?.text = "ho"
+        contentLabel?.text = "jo"
+        println(usernameLabel?.text)
         
         if let comment = self.comment
         {
-            usernameLabel?.text = comment.write_username!
-            contentLabel?.text = comment.content!
-            
+            usernameLabel?.text = "ho"
+            contentLabel?.text = "JO"
+        
+//            usernameLabel?.text = comment.write_username!
+//            contentLabel?.text = comment.content!
+        
 //            likeImageView.addTarget(self, action: Selector("clickLikeButton:"), forControlEvents: UIControlEvents.TouchUpInside)
         }
     }
@@ -43,7 +48,6 @@ class CommentViewCell: UITableViewCell {
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
         // Configure the view for the selected state
     }
     

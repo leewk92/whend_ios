@@ -17,20 +17,21 @@ class SpecificScheduleViewController : UIViewController, UITableViewDataSource ,
 
     var schedule: Schedule?
     
+    
     override func viewDidLoad(){
+        
         super.viewDidLoad()
         updateUI()
         
         
-        
-        var tableView: UITableView = UITableView(frame:self.view.viewWithTag(1)!.frame)
+        var tableView:UITableView = UITableView(frame:self.view.viewWithTag(1)!.frame)
         
         // Register our cell's class for cell reuse
         tableView.registerClass(CommentViewCell.self, forCellReuseIdentifier: "CommentViewCell")
         
         // Set our source and add the tableview to the view
         tableView.dataSource = self
-        self.view.addSubview(tableView)
+        self.view.viewWithTag(1)!.addSubview(tableView)
         
         
         var url:NSURL = NSURL(string: "http://119.81.176.245/schedules/\(schedule!.id!)/comments/")!
@@ -45,6 +46,7 @@ class SpecificScheduleViewController : UIViewController, UITableViewDataSource ,
         itemCount = (restfulUtil.innerResult?.count)!
         nextUrl = restfulUtil.nextUrl
         
+    
     }
     
     
@@ -209,7 +211,7 @@ class SpecificScheduleViewController : UIViewController, UITableViewDataSource ,
         //        var cell:WallTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("ScheduleItem") as! WallTableViewCell
         
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(StoryBoard.CellReuseIdentifier, forIndexPath: indexPath) as! CommentViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(StoryBoard.CellReuseIdentifier , forIndexPath: indexPath) as! CommentViewCell
         //        schedule.append(Schedule())
         cell.comment = self.comments[indexPath.row]
         //        cell.textLabel?.text = tweet.text
@@ -221,7 +223,7 @@ class SpecificScheduleViewController : UIViewController, UITableViewDataSource ,
         //            getImageUtil.getUrlImage(&cell.schedulePhoto, _url: tmpPhoto_dir)
         //        }
         //
-        
+
         return cell
     }
     
