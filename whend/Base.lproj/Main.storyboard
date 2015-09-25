@@ -539,15 +539,15 @@
             </objects>
             <point key="canvasLocation" x="86" y="1726"/>
         </scene>
-        <!--View Controller-->
+        <!--User View Controller-->
         <scene sceneID="f5s-m1-zYt">
             <objects>
-                <viewController id="YAQ-Nw-JOR" sceneMemberID="viewController">
+                <viewController id="YAQ-Nw-JOR" customClass="UserViewController" customModule="whend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rSy-kD-0mb"/>
                         <viewControllerLayoutGuide type="bottom" id="vY5-pu-xJ4"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="iBc-or-sZh">
+                    <view key="view" contentMode="scaleToFill" id="iBc-or-sZh" customClass="UserVIew">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -839,9 +839,14 @@
                                             <outlet property="scheduleTitleLabel" destination="RQK-hp-sYn" id="otB-ov-xOs"/>
                                             <outlet property="scheduleUserNameLabel" destination="ESB-hu-DWr" id="muS-sb-gy6"/>
                                             <outlet property="userPhoto" destination="iIq-a0-UwA" id="aN4-ik-TSc"/>
+                                            <segue destination="fgL-2D-stU" kind="show" identifier="goto_schedule" id="Qs0-D6-zUo"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="YAQ-Nw-JOR" id="VeF-cJ-etc"/>
+                                    <outlet property="delegate" destination="YAQ-Nw-JOR" id="d7D-Oo-otd"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Count" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4m-Yv-Xlp">
                                 <rect key="frame" x="16" y="110" width="184" height="21"/>
@@ -889,6 +894,15 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="KhT-H4-xOJ"/>
+                    <connections>
+                        <outlet property="followingCountLabel" destination="79H-KU-436" id="t5b-1n-hzv"/>
+                        <outlet property="follwerCountLabel" destination="h3A-NV-Z3i" id="8YC-qe-QYE"/>
+                        <outlet property="postCountLabel" destination="J4m-Yv-Xlp" id="0nd-6V-B4X"/>
+                        <outlet property="tableView" destination="CNI-5O-GhN" id="8sO-hJ-rJG"/>
+                        <outlet property="userIdLabel" destination="UGw-Z7-5c1" id="DxX-lF-UdM"/>
+                        <outlet property="userNameLabel" destination="biZ-ot-rZu" id="7bQ-Wf-Nia"/>
+                        <outlet property="userPhotoImageView" destination="oYp-S7-jGx" id="cEs-LP-0U1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GbB-Ut-0Vq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1899,7 +1913,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Fta-pe-lKU"/>
-        <segue reference="yCQ-dR-oqK"/>
+        <segue reference="Qs0-D6-zUo"/>
         <segue reference="3JF-2y-Soa"/>
+        <segue reference="yCQ-dR-oqK"/>
     </inferredMetricsTieBreakers>
 </document>

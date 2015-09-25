@@ -37,7 +37,11 @@ public class User{
         let lastname = data?.valueForKeyPath(UserKey.LastName) as? String
         let id = data?.valueForKeyPath(UserKey.Id) as? Int
         let email = data?.valueForKeyPath(UserKey.Email) as? String
-        let user_photo = data?.valueForKeyPath(UserKey.UserPhoto) as? NSURL
+        var user_photo:NSURL?
+        if let user_photo_s = data?.valueForKeyPath(UserKey.UserPhoto) as? String {
+            user_photo = NSURL(string: user_photo_s)
+        }
+        
         let gender = data?.valueForKeyPath(UserKey.Gender) as? String
         let status = data?.valueForKeyPath(UserKey.Status) as? String
         let schedule_count = data?.valueForKeyPath(UserKey.ScheduleCount) as? Int
@@ -45,7 +49,7 @@ public class User{
         let count_following_hashtag = data?.valueForKeyPath(UserKey.CountFollowingHashtag) as? Int
         let count_follower = data?.valueForKeyPath(UserKey.CountFollower) as? Int
         
-        if username != nil && id != nil {
+        if data != nil  {
             self.username = username!
             self.id = id!
             self.firstname = firstname
@@ -87,7 +91,7 @@ public class User{
         dictionary[UserKey.Id] = self.id.description
         dictionary[UserKey.Email] = self.email
         dictionary[UserKey.UserPhoto] = self.user_photo?.description
-        dictionary[UserKey.Gender] = self.gender
+ //       dictionary[UserKey.Gender] = self.gender
         dictionary[UserKey.Status] = self.status
         dictionary[UserKey.ScheduleCount] = self.schedule_count.description
         dictionary[UserKey.CountFollowingUser] = self.count_following_user.description
@@ -105,15 +109,15 @@ public class User{
     
     
     struct UserKey {
-        static let UserName = "username"
-        static let FirstName = "firstname"
-        static let LastName = "lastname"
-        static let Id = "id"
+        static let UserName = "user_name"
+        static let FirstName = "first_name"
+        static let LastName = "last_name"
+        static let Id = "user_id"
         static let Email = "email"
-        static let UserPhoto = "user_photo"
+        static let UserPhoto = "photo"
         static let Gender = "gender"
         static let Status = "status"
-        static let ScheduleCount = "schedule_count"
+        static let ScheduleCount = "count_uploaded_schedule"
         static let CountFollowingUser = "count_following_user"
         static let CountFollowingHashtag = "count_following_hashtag"
         static let CountFollower = "count_follower"
