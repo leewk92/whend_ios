@@ -25,15 +25,15 @@ class SpecificScheduleViewController : UIViewController, UITableViewDataSource ,
         updateUI()
         
         
+        // 밑에 주석단애들 없어야 작동합니다...
+//        // Register our cell's class for cell reuse
+//        tableView.registerClass(CommentViewCell.self, forCellReuseIdentifier: "CommentViewCell")
+//        
+//        // Set our source and add the tableview to the view
+//        tableView.dataSource = self
+//        tableView.delegate = self
         
-        // Register our cell's class for cell reuse
-        tableView.registerClass(CommentViewCell.self, forCellReuseIdentifier: "CommentViewCell")
-        
-        // Set our source and add the tableview to the view
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        //self.view.addSubview(tableView)
+        self.view.addSubview(tableView)
 
         
         
@@ -48,7 +48,7 @@ class SpecificScheduleViewController : UIViewController, UITableViewDataSource ,
         }
         itemCount = (restfulUtil.innerResult?.count)!
         nextUrl = restfulUtil.nextUrl
-        
+        tableView.reloadData()
        // var tableView:UITableView = UITableView(frame:self.view.viewWithTag(1)!.frame)
         
        
@@ -189,6 +189,7 @@ class SpecificScheduleViewController : UIViewController, UITableViewDataSource ,
         }
         schedule?.followButtonClicked()
         updateUI()
+        
     }
     
     @IBAction func clickCommentButton(sender: UIButton) {
@@ -237,29 +238,35 @@ class SpecificScheduleViewController : UIViewController, UITableViewDataSource ,
         //            getImageUtil.getUrlImage(&cell.schedulePhoto, _url: tmpPhoto_dir)
         //        }
         //
-
+       
+        
         return cell
     }
     
     // for endless scrolling
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        if itemCount - indexPath.row == 3{
-            var url:NSURL = nextUrl!
-            var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes:HTTPRestfulUtilizer.RestType.GET(url: url))!
-            restfulUtil.requestRestSync()
-            if let items = restfulUtil.innerResult{
-                for item in items{
-                    let comment:Comment = Comment(data: item)!
-                    comments.append(comment)
-                    //                    tableView.reloadData()
-                    //                    self.itemCount = self.itemCount + 1
-                }
-            }
-            self.itemCount += (restfulUtil.innerResult?.count)!
-            nextUrl = restfulUtil.nextUrl
+        if (itemCount - indexPath.row == 3){
             
-            tableView.reloadData()
+            if let url = nextUrl{
+            
+                // var url:NSURL = nextUrl!
+                var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes:HTTPRestfulUtilizer.RestType.GET(url: url))!
+                restfulUtil.requestRestSync()
+                if let items = restfulUtil.innerResult{
+                    for item in items{
+                        let comment:Comment = Comment(data: item)!
+                        comments.append(comment)
+                        //                    tableView.reloadData()
+                        //                    self.itemCount = self.itemCount + 1
+                    }
+                }
+                self.itemCount += (restfulUtil.innerResult?.count)!
+                nextUrl = restfulUtil.nextUrl
+            
+                tableView.reloadData()
+            }
+            
         }
     }
     
@@ -280,3 +287,4 @@ class SpecificScheduleViewController : UIViewController, UITableViewDataSource ,
 
     
 }
+

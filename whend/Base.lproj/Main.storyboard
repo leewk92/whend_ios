@@ -1681,8 +1681,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="contentLabel" destination="u3n-4S-pAx" id="jll-jr-jLI"/>
-                                            <outlet property="usernameLabel" destination="SeB-bB-9ur" id="XSD-Ib-A5t"/>
+                                            <outlet property="contentLabel" destination="u3n-4S-pAx" id="xG7-Yh-Dt9"/>
+                                            <outlet property="usernameLabel" destination="SeB-bB-9ur" id="XEJ-YX-ZOV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

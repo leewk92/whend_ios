@@ -96,22 +96,24 @@ class CommentTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if itemCount - indexPath.row == 3{
-            var url:NSURL = nextUrl!
-            var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes:HTTPRestfulUtilizer.RestType.GET(url: url))!
-            restfulUtil.requestRestSync()
-            if let items = restfulUtil.innerResult{
-                for item in items{
-                    if let comment:Comment = Comment(data: item){
-                        comments.append(comment)
-                        self.itemCount = self.itemCount + 1
+            if let url:NSURL = nextUrl {
+                var restfulUtil:HTTPRestfulUtilizer = HTTPRestfulUtilizer(restTypes:HTTPRestfulUtilizer.RestType.GET(url: url))!
+                restfulUtil.requestRestSync()
+                if let items = restfulUtil.innerResult{
+                    for item in items{
+                        if let comment:Comment = Comment(data: item){
+                            comments.append(comment)
+                            self.itemCount = self.itemCount + 1
+                        }
+                        //                    tableView.reloadData()
+                        // self.itemCount = self.itemCount + 1
                     }
-                    //                    tableView.reloadData()
-                    // self.itemCount = self.itemCount + 1
                 }
+                // self.itemCount += (restfulUtil.innerResult?.count)!
+                nextUrl = restfulUtil.nextUrl
+                tableView.reloadData()
             }
-            // self.itemCount += (restfulUtil.innerResult?.count)!
-            nextUrl = restfulUtil.nextUrl
-            tableView.reloadData()
+            
         }
     }
 
