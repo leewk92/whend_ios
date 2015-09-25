@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>AB77BED5-4180-4A62-BA93-5B2D410B0E74</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>whend</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>44AC8A54F5571FC02EF8D2DF22C2E91BC131FB38</key>
 		<string>https://github.com/leewk92/whend_ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>whend.xcodeproj/project.xcworkspace</string>
+	<string>whend.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>44AC8A54F5571FC02EF8D2DF22C2E91BC131FB38</key>
