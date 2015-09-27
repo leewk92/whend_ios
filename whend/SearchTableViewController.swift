@@ -9,16 +9,19 @@
 import UIKit
 
 class SearchTableViewController: UITableViewController {
-
+    
+    
     var hashtags:[HashTag] = []
     var nextUrl:NSURL?
     var itemCount:Int = 0
     
-  
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        //navigation bar hide
+        self.navigationController?.navigationBarHidden = true
         tableView.rowHeight = tableView.frame.width/4
         // tableView.estimatedRowHeight = tableView.rowHeight
 
