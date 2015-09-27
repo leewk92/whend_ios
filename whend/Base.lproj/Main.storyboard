@@ -16,10 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="R2f-hn-a9u">
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="mV0-uF-Qp9">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="EB9-cT-pJ3" id="ogA-yO-FSw"/>
+                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchTableViewCell" rowHeight="155" id="kYV-ep-jDW" customClass="SearchTableViewCell" customModule="whend">
@@ -124,28 +127,21 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="llH-k1-wa3"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="J6d-WE-OuB" id="Xyj-Xv-1O6"/>
+                        <outlet property="searchDisplayController" destination="7L7-UD-Apr" id="eDd-8Z-muf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tgo-W0-sxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="SnU-qY-nJE">
+                <searchDisplayController id="7L7-UD-Apr">
                     <connections>
-                        <outlet property="delegate" destination="EB9-cT-pJ3" id="f8X-T4-1Tx"/>
-                        <outlet property="searchContentsController" destination="EB9-cT-pJ3" id="TSv-eI-7xD"/>
-                        <outlet property="searchResultsDataSource" destination="EB9-cT-pJ3" id="Wad-lJ-cpK"/>
-                        <outlet property="searchResultsDelegate" destination="EB9-cT-pJ3" id="Igf-LQ-LGm"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="J6d-WE-OuB">
-                    <connections>
-                        <outlet property="delegate" destination="EB9-cT-pJ3" id="AkY-QJ-Ggd"/>
-                        <outlet property="searchContentsController" destination="EB9-cT-pJ3" id="h9l-dL-ZDn"/>
-                        <outlet property="searchResultsDataSource" destination="EB9-cT-pJ3" id="TRJ-1C-4X5"/>
-                        <outlet property="searchResultsDelegate" destination="EB9-cT-pJ3" id="T2R-ek-NEN"/>
+                        <outlet property="delegate" destination="EB9-cT-pJ3" id="voE-zV-b4c"/>
+                        <outlet property="searchBar" destination="mV0-uF-Qp9" id="V88-vF-88K"/>
+                        <outlet property="searchContentsController" destination="EB9-cT-pJ3" id="FY2-ID-Z1b"/>
+                        <outlet property="searchResultsDataSource" destination="EB9-cT-pJ3" id="fXv-so-eEj"/>
+                        <outlet property="searchResultsDelegate" destination="EB9-cT-pJ3" id="PIk-TI-oz5"/>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2611" y="414"/>
+            <point key="canvasLocation" x="2590" y="494"/>
         </scene>
         <!--Upload View Controller-->
         <scene sceneID="aRx-yQ-OLd">
@@ -2316,7 +2312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLp-B4-ndV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3308" y="472"/>
+            <point key="canvasLocation" x="3326" y="423"/>
         </scene>
     </scenes>
     <resources>

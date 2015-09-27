@@ -194,7 +194,7 @@ class SearchTableViewController: UITableViewController {
         //        var cell:WallTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("ScheduleItem") as! WallTableViewCell
         
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("SearchTableViewCell", forIndexPath: indexPath) as! SearchTableViewCell
+        let cell = self.tableView!.dequeueReusableCellWithIdentifier("SearchTableViewCell") as! SearchTableViewCell
         
         //        schedule.append(Schedule())
         cell.hashtag = self.hashtags[indexPath.row]
@@ -214,6 +214,8 @@ class SearchTableViewController: UITableViewController {
     
     // for endless scrolling
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+
         
         if itemCount - indexPath.row == 3{
             var url:NSURL = nextUrl!
